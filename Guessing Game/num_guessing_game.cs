@@ -1,6 +1,6 @@
 //import system namespace
 using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
 //using namespace for organization (not neccesary)
 namespace num_guessing_game
@@ -34,16 +34,17 @@ namespace num_guessing_game
             while (!quit)
             {
                 int correctNumber = rnd.Next(1, upperBoundary + 1); // returns a random integer between 1 and the upper bound.
-                guessedCorrect = false;
-                noOfGuesses = 0; 
+                guessedCorrect = false; //resets the guessed correct to false for each new round.
+                noOfGuesses = 0; //resets the number of Guesses made to 0 for each new round
 
-                //Difficulty setting
-                int difficulty = Difficulty(upperBoundary);
-                maxGuesses = difficulty;
+                //Setting difficulty
+                int difficulty = Difficulty(upperBoundary); //calling the Difficulty method | returns a value that is appropriate for a max guess (depending on the upper bound set)
+                maxGuesses = difficulty; //setting max guesses
 
-
+                //While the user hasn't guessed the correct answer AND the number of guesses made is less than the max guesses allowed
                 while (!guessedCorrect && noOfGuesses < maxGuesses)
                 {
+
                     Console.WriteLine($"Enter a number between 1 and {upperBoundary}: ");
                     string input = Console.ReadLine();
 
@@ -53,7 +54,7 @@ namespace num_guessing_game
                         if (number == correctNumber)
                         {
                             noOfGuesses++;
-                            Console.WriteLine("You got it correct \n"  +
+                            Console.WriteLine("You got it correct \n" +
                                               "You guessed " + noOfGuesses + " times");
                             guessedCorrect = true;
 
@@ -97,14 +98,19 @@ namespace num_guessing_game
                         Console.WriteLine("-----------------------------------------------------------");
 
                         quit = true;
-                    }else if (actual_choice == 1)
+                    }
+                    else if (actual_choice == 1)
                     {
                         Console.WriteLine("\n Loading new round...\n");
-                    }else {
-                        Environment.Exit(0); 
                     }
-                //If it's empty, 
-                }else{
+                    else
+                    {
+                        Environment.Exit(0);
+                    }
+                    //If it's empty, 
+                }
+                else
+                {
                     Console.WriteLine("Play SG, Win TP");
                     Environment.Exit(0);
                 }
@@ -129,7 +135,7 @@ namespace num_guessing_game
 
             //Easy: Just 80% of Upper Boundary (Eg., if upper Boundary is 100, guesses will be 80)
             double easy_guesses = Math.Ceiling(0.8 * (upperBoundary));
-            int easy = (int) easy_guesses;
+            int easy = (int)easy_guesses;
 
             Console.WriteLine($"What level of difficulty do you want? \n\t1. Easy ({easy} guesses) \n\t2. Medium ({medium} guesses) \n\t3. Hard ({hard} guesses)");
 
@@ -169,7 +175,7 @@ namespace num_guessing_game
                     {
                         bestscore = score;
                     }
-    
+
                 }
                 Console.WriteLine($"Best score is {bestscore}");
             }
@@ -187,16 +193,19 @@ namespace num_guessing_game
         public static int SetUpperBoundary(string[] args)
         {
             //Ensuring we have proper input
-            if(args == null || args.Length == 0)
+            if (args == null || args.Length == 0)
             {
                 return 100;
-            }else if(!int.TryParse(args[0], out int upperBound) || upperBound < 10 || upperBound >1000000 || upperBound%10 != 0 )
+            }
+            else if (!int.TryParse(args[0], out int upperBound) || upperBound < 10 || upperBound > 1000000 || upperBound % 10 != 0)
             {
                 return 100;
-            }else{
+            }
+            else
+            {
                 return upperBound;
             }
         }
     }
-    
+
 }
