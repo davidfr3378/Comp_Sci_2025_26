@@ -1,5 +1,6 @@
 //import system namespace
 using System;
+using System.Collections.Generic; 
 
 //using namespace for organization (not neccesary)
 namespace num_guessing_game
