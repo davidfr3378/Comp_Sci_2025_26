@@ -1,21 +1,24 @@
-//import Sysytem namespace
+//import system namespace
 using System;
-using System.Collections.Generic;
 
-
-namespace num_guessing_game_v2{
-
+//using namespace for organization (not neccesary)
+namespace num_guessing_game
+{
+    //Creating program class
     class Program
     {
 
-        static void Main()
+        //Creating the Main method and setting the input parameter to a string list.
+        static void Main(string[] args)
         {
             //Variables
-            bool guessedCorrect = false;
-            int noOfGuesses = 0;
-            int maxGuesses = 0;
-            bool quit = false;
-            int upperBoundary = 100;
+            bool guessedCorrect = false; //to check if the user has guessed correct
+            int noOfGuesses = 0; //to keep track of the number of guesses made by the user
+            int maxGuesses = 0; //to store the maximum allowed guesses for the user
+            bool quit = false; //to check if the user has decided to quit the game
+
+            //Setting Upper boundary 
+            int upperBoundary = SetUpperBoundary(args); //Calling the SetUpperBoundary method to take CLI arguments and set the first as upper Bound 
 
             //Intro
             Console.WriteLine("_________________________________________");
@@ -148,6 +151,9 @@ namespace num_guessing_game_v2{
             return hard;
         }
 
+        /*
+        PrintBestScore is a method created to iterate through the scoreboard list and print the lowest (best) score to the user
+        */
         public static void PrintBestScore(List<int> scoreboard)
         {
             if (scoreboard.Count > 0)
@@ -164,6 +170,28 @@ namespace num_guessing_game_v2{
                 Console.WriteLine($"Best score is {bestscore}");
             }
 
+        }
+
+        /*
+        Sets the Upper Boundary by getting user input at the CLI
+        Rules:
+        1. Upper Bound must be a multiple of 10
+        2. Upper Bound must be greater than or equal to 10
+        3. Upper Bound must be less than or equal to 1000000 (1 mil)
+        4. If no input given, default is 100
+        */
+        public static int SetUpperBoundary(string[] args)
+        {
+            //Ensuring we have proper input
+            if(args == null || args.Count == 0)
+            {
+                return 100;
+            }else if(!int.TryParse(args[0], out int upperBound) || upperBound < 10 || upperBound >1000000 || upperBound%10 != 0 )
+            {
+                return 100;
+            }else{
+                return upperBound;
+            }
         }
     }
     
