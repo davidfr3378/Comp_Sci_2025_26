@@ -1,7 +1,6 @@
 //import Sysytem namespace
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 
 namespace num_guessing_game_v2{
@@ -12,14 +11,11 @@ namespace num_guessing_game_v2{
         static void Main()
         {
             //Variables
-            Boolean guessed_Correct = false;
-            int no_of_guesses = 0;
-            int max_guesses = 0;
-            Boolean quit = false;
-            int upper_boundary = 10;
-            //Random number generation
-            Random rnd = new Random();
-            int Correct_Number = rnd.Next(1, upper_boundary); // returns random integers >= 10 and  < 20
+            bool guessedCorrect = false;
+            int noOfGuesses = 0;
+            int maxGuesses = 0;
+            bool quit = false;
+            int upperBoundary = 100;
 
             //Intro
             Console.WriteLine("_________________________________________");
@@ -27,63 +23,66 @@ namespace num_guessing_game_v2{
 
             //Creating a list to store the scores of different matches
             List<int> scoreboard = new List<int>();
+
+            //Random number generator creator
+            Random rnd = new Random();
             //Game Loop
             while (!quit)
             {
+                int correctNumber = rnd.Next(1, upperBoundary + 1); // returns a random integer between 1 and the upper bound.
+                guessedCorrect = false;
+                noOfGuesses = 0; 
+
                 //Difficulty setting
-                int difficulty = Difficulty(upper_boundary);
-                max_guesses = difficulty;
+                int difficulty = Difficulty(upperBoundary);
+                maxGuesses = difficulty;
 
 
-                while (!guessed_Correct && no_of_guesses < max_guesses)
+                while (!guessedCorrect && noOfGuesses < maxGuesses)
                 {
-                    Console.WriteLine("No of guesses rn (at the beginini): " +no_of_guesses);
-                    Console.WriteLine("Max:" +max_guesses);
-
-                    Console.WriteLine($"Enter a number between 1 and {upper_boundary}: ");
+                    Console.WriteLine($"Enter a number between 1 and {upperBoundary}: ");
                     string input = Console.ReadLine();
 
                     int number;
-                    if (int.TryParse(input, out number) && number > 0 && number <= upper_boundary)
+                    if (int.TryParse(input, out number) && number > 0 && number <= upperBoundary)
                     {
-                        if (number == Correct_Number)
+                        if (number == correctNumber)
                         {
-                            no_of_guesses++;
-                            Console.WriteLine("You got it correct");
-                            Console.WriteLine("You guessed " + no_of_guesses + " times");
-                            guessed_Correct = true;
+                            noOfGuesses++;
+                            Console.WriteLine("You got it correct \n"  +
+                                              "You guessed " + noOfGuesses + " times");
+                            guessedCorrect = true;
 
                         }
-                        else if (number > Correct_Number)
+                        else if (number > correctNumber)
                         {
-                            no_of_guesses++;
-                            Console.WriteLine($"Higher than answer | {max_guesses - no_of_guesses} left\n");
+                            noOfGuesses++;
+                            Console.WriteLine($"Your guess is higher than answer | {maxGuesses - noOfGuesses} left\n");
                         }
                         else
                         {
-                            no_of_guesses++;
-                            Console.WriteLine($"Lower than answer | {max_guesses - no_of_guesses} left\n");
+                            noOfGuesses++;
+                            Console.WriteLine($"Your guess is lower than answer | {maxGuesses - noOfGuesses} left\n");
                         }
                     }
                     else
                     {
-                        Console.WriteLine($"Invalid input. Please enter a positive number between 1 and {upper_boundary}.");
+                        Console.WriteLine($"Invalid input. Please enter a positive number between 1 and {upperBoundary}.");
                     }
                 }
-                if (!guessed_Correct)
+                if (!guessedCorrect)
                 {
                     Console.WriteLine("YOU FAILED");
-                    Console.WriteLine($"\nThe correct number was {Correct_Number}");
-                    scoreboard.Add(max_guesses + 1);
+                    Console.WriteLine($"\nThe correct number was {correctNumber}");
                 }
                 else
                 {
                     //Add score to scoreboard
-                    scoreboard.Add(no_of_guesses);
+                    scoreboard.Add(noOfGuesses);
                 }
 
                 //Message at the end of each game
-                print_bestScore(scoreboard);
+                PrintBestScore(scoreboard);
                 Console.WriteLine("Do you want to play again? (0 = no, 1 = yes)");
                 string choice = Console.ReadLine();
 
@@ -95,11 +94,11 @@ namespace num_guessing_game_v2{
                         Console.WriteLine("-----------------------------------------------------------");
 
                         quit = true;
-                    }
-                    else
+                    }else if (actual_choice == 1)
                     {
-                        guessed_Correct = false;
-                        no_of_guesses = 0; 
+                        Console.WriteLine("\n Loading new round...\n");
+                    }else {
+                        Environment.Exit(0); 
                     }
                 }
             }
@@ -109,27 +108,24 @@ namespace num_guessing_game_v2{
         The Difficulty method's purpose is to (with the upper boundary):
             1. Create the max guesses for easy, medium, and hard mode.
             2. Query the user about their difficulty choice
-            3. Choose the max guess for the game based on the users' choice.
-            4. Return the max guess
+            3. Choose and return the max guess for the game based on the users' choice.
         */
-        public static int Difficulty(int upper_boundary)
+        public static int Difficulty(int upperBoundary)
         {
             //Calculating Guess limits
             //Hard: The log (in base 2) of the upper boundary
-            double result = Math.Log(upper_boundary, 2);   // ≈ 6.643856
+            double result = Math.Log(upperBoundary, 2);   // ≈ 6.643856
             int hard = (int)Math.Ceiling(result);
 
             //Medium: Hard * 2
             int medium = hard * 2;
 
             //Easy: Just 80% of Upper Boundary (Eg., if upper Boundary is 100, guesses will be 80)
-            double easy_guesses = Math.Ceiling(0.8 * (upper_boundary));
-            int easy = (int)easy_guesses;
+            double easy_guesses = Math.Ceiling(0.8 * (upperBoundary));
+            int easy = (int) easy_guesses;
 
-            Console.WriteLine("What level of difficulty do you want? ");
-            Console.WriteLine("1. Easy (Effectively infinite guesses)");
-            Console.WriteLine($"2. Medium ({medium} guesses)");
-            Console.WriteLine($"3. Hard ({hard} guesses)");
+            Console.WriteLine($"What level of difficulty do you want? \n\t1. Easy ({easy} guesses) \n\t2. Medium ({medium} guesses) \n\t3. Hard ({hard} guesses)");
+
             string str_difficulty = Console.ReadLine();
 
             if (int.TryParse(str_difficulty, out int int_difficulty))
@@ -152,18 +148,22 @@ namespace num_guessing_game_v2{
             return hard;
         }
 
-        public static void print_bestScore(List<int> scoreboard)
+        public static void PrintBestScore(List<int> scoreboard)
         {
-            int bestscore = scoreboard[0];
-            foreach (int score in scoreboard)
+            if (scoreboard.Count > 0)
             {
-                if (score < bestscore)
+                int bestscore = scoreboard[0];
+                foreach (int score in scoreboard)
                 {
-                    bestscore = score;
+                    if (score < bestscore)
+                    {
+                        bestscore = score;
+                    }
+    
                 }
-
+                Console.WriteLine($"Best score is {bestscore}");
             }
-            Console.WriteLine($"Best score is {bestscore}");
+
         }
     }
     
