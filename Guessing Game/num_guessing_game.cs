@@ -88,7 +88,6 @@ namespace num_guessing_game
                 PrintBestScore(scoreboard);
                 Console.WriteLine("Do you want to play again? (0 = no, 1 = yes)");
                 string choice = Console.ReadLine();
-
                 if (int.TryParse(choice, out int actual_choice))
                 {
                     if (actual_choice == 0)
@@ -103,6 +102,10 @@ namespace num_guessing_game
                     }else {
                         Environment.Exit(0); 
                     }
+                //If it's empty, 
+                }else{
+                    Console.WriteLine("Play SG, Win TP");
+                    Environment.Exit(0);
                 }
             }
         }
