@@ -187,7 +187,7 @@ namespace num_guessing_game
         public static int SetUpperBoundary(string[] args)
         {
             //Ensuring we have proper input
-            if(args == null || args.Count == 0)
+            if(args == null || args.Length == 0)
             {
                 return 100;
             }else if(!int.TryParse(args[0], out int upperBound) || upperBound < 10 || upperBound >1000000 || upperBound%10 != 0 )
