@@ -4,6 +4,7 @@ public class Item extends GameObject{
     private String name;
     private String description;
     private String effect; 
+    private ObjectType type = ObjectType.ITEM;
 
     public Item(String name, String description, String effect, int ID){
         super(ID);

@@ -1,5 +1,7 @@
 public class Player extends GameObject{
     private Coordinate currentLocation;
+    private ObjectType type = ObjectType.PLAYER;
+
     private Inventory<Item> inventory;
     //private List<> 
 
@@ -8,6 +10,7 @@ public class Player extends GameObject{
         this.currentLocation = location;
         this.inventory = new Inventory<>();
     }
+
 
     //LOCATION
     //getLOCATION
@@ -64,6 +67,7 @@ public class Player extends GameObject{
     //Move LEFT
     public void moveLeft(){
         GameObject object = checkLeftDirection();
+        int id = object.getID();
         object.Interact(this);
     }
     //Move RIGHT
