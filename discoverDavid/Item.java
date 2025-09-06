@@ -1,11 +1,12 @@
 import java.util.ArrayList; 
 
-public class Item{
+public class Item extends GameObject{
     private String name;
     private String description;
     private String effect; 
 
-    public Item(String name, String description, String effect){
+    public Item(String name, String description, String effect, int ID){
+        super(ID);
         this.name = name;
         this.description = description;
         this.effect = effect;
@@ -31,6 +32,9 @@ public class Item{
                             + "| Effect: " + this.effect + "]";
     }
 
+    public void Interact(Player player){
+        player.addInventory(this);  
+    }
 }
 
 //To do

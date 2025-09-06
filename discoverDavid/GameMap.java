@@ -1,5 +1,5 @@
 public class GameMap {
-    private char[][] map = {
+    private static char[][] map = {
                                 {'#','#','#','#','#','#','#','b','#'},
                                 {'#','m','b','b','m','b','m','b','b'},
                                 {'#','b','m','#','b','#','#','#','#'}, 
@@ -17,7 +17,7 @@ public class GameMap {
 
     
     //Check what a coordinate holds
-    public char checkCoordinate(int row, int col){
+    public static char checkCoordinate(int row, int col){
         return map[row][col];
     }
 

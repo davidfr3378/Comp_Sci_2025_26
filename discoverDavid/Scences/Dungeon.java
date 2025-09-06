@@ -3,10 +3,10 @@ public class Dungeon {
     System.out.println("Hello World");
 
     //Create a player at (9,5) and give them a couple items
-    Player player = new Player(new Coordinate(9,5));
-    player.addInventory(new Item("Sword", "A basic sword", "Kills"));
-    player.addInventory(new Item("Shield", "A basic shield", "+5 Health"));
-    player.addInventory(new Item("Potion", "A basic heal potion", "+ 10 Health"));
+    Player player = new Player(new Coordinate(9,5), 0);
+    player.addInventory(new Item("Sword", "A basic sword", "Kills", 1));
+    player.addInventory(new Item("Shield", "A basic shield", "+5 Health", 1));
+    player.addInventory(new Item("Potion", "A basic heal potion", "+ 10 Health", 1));
 
     //Print Items
     player.printInventory();
