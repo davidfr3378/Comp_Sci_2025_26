@@ -1,12 +1,7 @@
 public class Room{
-    String[][] myRoom = { 
-                        {"", "", ""}, 
-                        {"", "", ""}, 
-                        {"", "", ""} 
-                    };
+    String[][] myRoom;
 
-    //Should expect a String : String Hashmap that contains items like : ("1,0" : "")
-    public Room(eventsList){
+    public Room(){
         
     }
 
@@ -28,7 +23,5 @@ Able to add and remove events or doors
 
 What creates a room? (Mapmaker class?)
 How do you translate from room to event to room? (Specifically event to room? Maybe post every event, a method runs that calls its exitpoint? If the exit point is set beforehand, what comes first?)
-
-
 
  */

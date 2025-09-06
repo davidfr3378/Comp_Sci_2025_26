@@ -12,16 +12,23 @@ public class Item{
     }
 
     //getters 
-    public getName(){
+    public String getName(){
         return name;
     }
 
-    public getDescription(){
+    public String getDescription(){
         return description;
     }
 
-    public getEffect(){
-        return name;
+    public String getEffect(){
+        return effect;
+    }
+
+    //Overide to string
+    @Override
+    public String toString(){
+        return "[Name: " + this.name + " Description: " + this.description 
+                            + " Effect: " + this.effect + "]";
     }
 
 }
@@ -32,5 +39,5 @@ Info:
 Name
 Description
 List of effects
-
+^^^^^^^^No of items
 */

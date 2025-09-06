@@ -1,8 +1,71 @@
-public class Event{
+public class Player{
+    private Coordinate currentLocation;
+    private Inventory<Item> inventory;
+    //private List<> 
 
-    public Event(){
-        
+    public Player(Coordinate location){
+        this.currentLocation = location;
+        this.inventory = new Inventory<>();
     }
+
+    //LOCATION
+    //get currentLocation
+    public Coordinate getLocation(){
+        return currentLocation;
+    }
+
+    //checkFront
+    public Coordinate checkForwardDirection(){
+        int x = currentLocation.getRow();
+        int y = currentLocation.getCol() + 1;
+
+        Coordinate forwardDirection = new Coordinate(x, y);
+        return forwardDirection;
+    }
+    //checkBack
+    public Coordinate checkBackwardDirection(){
+        int x = currentLocation.getRow();
+        int y = currentLocation.getCol() + 1;
+
+        Coordinate backwardDirection = new Coordinate(x, y);
+        return backwardDirection;
+    }
+
+    //checkLeft
+    public Coordinate checkLeftDirection(){
+        int x = currentLocation.getRow() - 1;
+        int y = currentLocation.getCol();
+
+        Coordinate leftLocation = new Coordinate(x, y);
+        return leftLocation;
+    }
+    //checkRight
+    public Coordinate checkRightDirection(){
+        int x = currentLocation.getRow() + 1;
+        int y = currentLocation.getCol();
+
+        Coordinate RightLocation = new Coordinate(x, y);
+        return RightLocation;
+    }
+
+    //INVENTORY
+    //add item to inventory
+    public void addInventory(Item item){
+        inventory.addItem(item);
+    }
+
+    //remove item to inventory
+    public void remInventory(Item item){
+        inventory.removeItem(item);
+    }
+
+    //view all item in inventory
+    public void printInventory(){
+        inventory.printItems(); 
+    }
+
+
+
 }
 //Requirements
 /*
