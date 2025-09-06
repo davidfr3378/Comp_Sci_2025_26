@@ -16,16 +16,16 @@ public class Player{
 
     //checkFront
     public Coordinate checkForwardDirection(){
-        int x = currentLocation.getRow();
-        int y = currentLocation.getCol() + 1;
+        int x = currentLocation.getRow() - 1;
+        int y = currentLocation.getCol();
 
         Coordinate forwardDirection = new Coordinate(x, y);
         return forwardDirection;
     }
     //checkBack
     public Coordinate checkBackwardDirection(){
-        int x = currentLocation.getRow();
-        int y = currentLocation.getCol() + 1;
+        int x = currentLocation.getRow() + 1;
+        int y = currentLocation.getCol();
 
         Coordinate backwardDirection = new Coordinate(x, y);
         return backwardDirection;
@@ -33,16 +33,16 @@ public class Player{
 
     //checkLeft
     public Coordinate checkLeftDirection(){
-        int x = currentLocation.getRow() - 1;
-        int y = currentLocation.getCol();
+        int x = currentLocation.getRow();
+        int y = currentLocation.getCol() - 1;
 
         Coordinate leftLocation = new Coordinate(x, y);
         return leftLocation;
     }
     //checkRight
     public Coordinate checkRightDirection(){
-        int x = currentLocation.getRow() + 1;
-        int y = currentLocation.getCol();
+        int x = currentLocation.getRow();
+        int y = currentLocation.getCol() + 1;
 
         Coordinate RightLocation = new Coordinate(x, y);
         return RightLocation;

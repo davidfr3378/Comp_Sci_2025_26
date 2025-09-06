@@ -27,8 +27,8 @@ public class Item{
     //Overide to string
     @Override
     public String toString(){
-        return "[Name: " + this.name + " Description: " + this.description 
-                            + " Effect: " + this.effect + "]";
+        return "[Name: " + this.name + "| Description: " + this.description 
+                            + "| Effect: " + this.effect + "]";
     }
 
 }
