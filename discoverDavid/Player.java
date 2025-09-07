@@ -19,6 +19,11 @@ public class Player extends GameObject{
         return currentLocation;
     }
 
+    //setLOCATION
+    public void setLocation(Coordinate coordinate){
+        currentLocation = coordinate;
+    }
+
     //checkLOCATION
     //checkFront
     public GameObject checkForwardDirection(){
@@ -58,30 +63,31 @@ public class Player extends GameObject{
         return atRightLocation;
     }
 
-    //setLOCATION
-    public void setLocation(Coordinate coordinate){
-        currentLocation = coordinate;
-    }
+    
 
     //changeLOCATION
     //Move LEFT
     public void moveLeft(){
+        System.out.println("\nMoving Left\n");
         GameObject object = checkLeftDirection();
-        int id = object.getID();
         object.Interact(this);
+        currentLocation.
     }
     //Move RIGHT
     public void moveRight(){
+        System.out.println("\nMoving Right\n");
         GameObject object = checkRightDirection();
         object.Interact(this);
     }
     //Move FORWARD
     public void moveForward(){
+        System.out.println("\nMoving Forward\n");
         GameObject object = checkForwardDirection();
         object.Interact(this);
     }
     //Move BACKWARD
     public void moveBackward(){
+        System.out.println("\nMoving Backward\n");
         GameObject object = checkBackwardDirection();
         object.Interact(this);
     }

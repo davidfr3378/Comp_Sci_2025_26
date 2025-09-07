@@ -1,6 +1,6 @@
 public class Coordinate {
-    private final int row;
-    private final int col;
+    private int row;
+    private int col;
 
     public Coordinate(int row, int col) {
         this.row = row;
@@ -13,6 +13,14 @@ public class Coordinate {
 
     public int getCol() {
         return col;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
     }
 
     //Override equals() and hashCode() for proper comparison in collections

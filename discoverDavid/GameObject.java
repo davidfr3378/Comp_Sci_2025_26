@@ -19,7 +19,7 @@ public abstract class GameObject {
     //get ID
     public ObjectType getType(){
         return type;
-    }
+    } 
 
     //set ID
     public void setType(ObjectType type){
