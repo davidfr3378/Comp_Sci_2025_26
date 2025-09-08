@@ -1,16 +1,31 @@
 package Map;
 public class GameMap {
-    private static int[][] map;
-
+    static int[][] map = {
+            {62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62}, // row 0
+            {62,62,62,62,62,62,62,62,21,100,100,62,62,62,62,62,62,62,62,62}, // row 1
+            {62,62,62,62,62,62,62,62,62,62,100,62,62,62,62,62,62,62,62,62}, // row 2
+            {62,62,62,62,62,62,62,62,62,62,100,100,21,62,62,62,62,62,62,62}, // row 3
+            {62,62,62,62,62,62,62,100,62,62,100,62,62,62,62,62,62,62,62,62}, // row 4
+            {62,62,62,62,62,62,62,100,21,100,100,62,62,62,62,62,62,62,62,62}, // row 5
+            {62,62,62,62,62,62,62,100,62,62,100,62,62,62,62,62,62,62,62,62}, // row 6
+            {62,100,21, 100, 100,100,100,100,100,100, 0,100,100,100,21,62,62,62,62,62}, // row 7 (player at col 10)
+            {62,62,62,62,62,100,62,62,62,62,62,62,100,62,62,62,62,62,62,62}, // row 8
+            {62,62,62,62,62,21,62,62,62,62,62,62,100, 100,21,62,62,62,62,62}, // row 9
+            {62,62,62,62,62,62,62,62,62,62,62,62,100, 62,62,62,62,62,62,62}, // row 10
+            {62,62,62,62,62,62,62,62,62,62,62,62,100, 62,62,62,62,62,62,62}, // row 11
+            {62,62,62,62,62,62,62,62,62,62,62,62,21,62,62,62,62,62,62,62}, // row 12
+            {62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62}, // row 13
+            {62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62}  // row 14
+        };
     public GameMap(int rows, int cols) {
-        map = new int[rows][cols];
+        //map = new int[rows][cols];
 
-        // initialize everything to BLANK
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                map[r][c] = 62;
-            }
-        }
+        // // initialize everything to BLANK
+        // for (int r = 0; r < rows; r++) {
+        //     for (int c = 0; c < cols; c++) {
+        //         map[r][c] = 100;
+        //     }
+        // }
     }
 
     public void setCell(int row, int col, int ID) {
@@ -21,29 +36,30 @@ public class GameMap {
         return map[row][col];
     }
 
-    public void printMap() {
+    public void print() {
         for (int r = 0; r < map.length; r++) {
+            System.out.print("\t".repeat(7));
             for (int c = 0; c < map[r].length; c++) {
 
                 //If 
                 if(map[r][c] == 0){
-                    System.out.println("@ "); //You
-                }else if(map[r][c] == 62){
+                    System.out.print("@ "); //You
+                }else if(map[r][c] == 100){
                     System.out.print(". "); //Blank
-                }else if(map[r][c] == 77){
-                    System.out.print("# "); //Wall
                 }else if(map[r][c] <= 20){
-                    System.out.println("M "); //Mobs
+                    System.out.print("M "); //Mobs
                 }else if(map[r][c] > 20 && map[r][c] <= 60){
-                    System.out.println("I "); //Items
+                    System.out.print("I "); //Items
+                }else if(map[r][c] > 60 && map[r][c] <= 90){
+                    System.out.print("# "); //Wall
                 }
-
-            }
-            System.out.println();
+                
         }
+        System.out.println();
     }
+    System.out.println();
 }
-
+}
 /*
  * private static char[][] map = {
                                 {'#','#','#','#','#','#','#','b','#'},
