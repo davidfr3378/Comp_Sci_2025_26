@@ -30,7 +30,12 @@ public class MemoryShard extends Item{
 
     @Override
     public void Interact(Player player){
-        System.out.println("YOu have aquired a memory shard\n\n" + messages[memoryIndex] + "\n");
+        System.out.println("You have aquired a memory shard\n\n" + messages[memoryIndex] + "\n");
+    }
+
+    @Override
+    public void toString(){
+        return "Memory shard " + memoryIndex"
     }
     
 }
