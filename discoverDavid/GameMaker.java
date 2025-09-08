@@ -26,7 +26,7 @@ public class GameMaker {
         // * End of crating basic objects
 
         //* Items:
-
+        MemoryShards memoryshard1 = new MemoryShards
 
 
         //Create a player at (9,5) and give them a couple items

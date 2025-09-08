@@ -1,4 +1,4 @@
-public class MemoryShards extends Item{
+public class MemoryShard extends Item{
     private int memoryIndex;
 
     private static final String[] messages = {
@@ -19,9 +19,11 @@ public class MemoryShards extends Item{
                 "\t Not die still" +
                 "\t Idk what else (I'm writing these late (I'm an early bird) so by brain is fried rn)",
         //Personality & Preferences
-        "For my hobbies, ",
+        "For my hobbies, I like biking (it's very relaxing), \nlearning (how can want to live if live if you don't want to learn). Cuurently studying the AoPS Volume 1 for the CSMC, \nreading web novels (I've read or am curently reading: LOTM (), ORV(220 something), SGWOM(1033), SS(1800), Genetic Ascension(839), LITOW(637), TPR (1600), \n and programming. ",
+        "I'm not watching any shows right now because of school, but I watch a fair bit of anime and read a lot of manga, manhwa, manhua. \n I don't consider any food in particular my favourite, but I tend to prefer either traditional food or fried and baked. (My heart is cooked)",
+        "Fun facts: "
     };
-    public MemoryShards(String name, String description, String effect, int ID, Coordinate coordinate, int memoryIndex) {
+    public MemoryShard(String name, String description, String effect, int ID, Coordinate coordinate, int memoryIndex) {
         super(name, description, effect, ID, coordinate);
         this.memoryIndex = memoryIndex;
     }
