@@ -1,0 +1,30 @@
+//import system namespace
+using System;
+using System.Collections.Generic;
+
+    //Creating program class
+    class Program
+    {
+
+        //Creating the Main method and setting the input parameter to a string list.
+        static void Main(string[] args)
+        {
+            Console.WriteLine("_____________________________________________");
+            COnsole.WriteLine();
+
+        }
+
+        //Solving
+        //SAS
+        public float SAS(float side1, float side2, float angle){
+            return 0.0;
+        }
+        //SSS
+        public float heron(float side1, float side2, float side3){
+            return 0.0;
+        }
+        //ASS
+        public float AAS(float side, float angle1, float angle2){
+            return 0.0;
+        }
+    }
