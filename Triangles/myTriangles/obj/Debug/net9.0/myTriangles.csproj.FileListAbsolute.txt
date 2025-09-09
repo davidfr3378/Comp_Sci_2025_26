@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/bin/Debug/net9.0/myTriangles
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/bin/Debug/net9.0/myTriangles.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/bin/Debug/net9.0/myTriangles.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/bin/Debug/net9.0/myTriangles.dll
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/bin/Debug/net9.0/myTriangles.pdb
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.dll
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/refint/myTriangles.dll
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.pdb
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/myTriangles.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/Triangles/myTriangles/obj/Debug/net9.0/ref/myTriangles.dll
