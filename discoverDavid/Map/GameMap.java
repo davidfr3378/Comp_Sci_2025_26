@@ -5,7 +5,7 @@ public class GameMap {
             {62,62,62,62,62,62,62,62,21,100,100,62,62,62,62,62,62,62,62,62}, // row 1
             {62,62,62,62,62,62,62,62,62,62,100,62,62,62,62,62,62,62,62,62}, // row 2
             {62,62,62,62,62,62,62,62,62,62,100,100,21,62,62,62,62,62,62,62}, // row 3
-            {62,62,62,62,62,62,62,100,62,62,100,62,62,62,62,62,62,62,62,62}, // row 4
+            {62,62,62,62,62,100,100,100,62,62,100,62,62,62,62,62,62,62,62,62}, // row 4
             {62,62,62,62,62,62,62,100,21,100,100,62,62,62,62,62,62,62,62,62}, // row 5
             {62,62,62,62,62,62,62,100,62,62,100,62,62,62,62,62,62,62,62,62}, // row 6
             {62,100,21, 100, 100,100,100,100,100,100, 0,100,100,100,21,62,62,62,62,62}, // row 7 (player at col 10)
@@ -38,7 +38,7 @@ public class GameMap {
 
     public void print() {
         for (int r = 0; r < map.length; r++) {
-            System.out.print("\t".repeat(7));
+            System.out.print("\t".repeat(12));
             for (int c = 0; c < map[r].length; c++) {
 
                 //If 
@@ -46,10 +46,12 @@ public class GameMap {
                     System.out.print("@ "); //You
                 }else if(map[r][c] == 100){
                     System.out.print(". "); //Blank
-                }else if(map[r][c] <= 20){
-                    System.out.print("M "); //Mobs
+                }else if(map[r][c] <= 18){
+                    System.out.print("M "); //Memory Shards
+                }else if(map[r][c] == 19 || map[r][c] == 20){
+                    System.out.print("I "); //Special Memory Shards
                 }else if(map[r][c] > 20 && map[r][c] <= 60){
-                    System.out.print("I "); //Items
+                    System.out.print("Q "); //Items
                 }else if(map[r][c] > 60 && map[r][c] <= 90){
                     System.out.print("# "); //Wall
                 }
