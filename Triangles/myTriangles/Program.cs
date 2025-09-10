@@ -1,49 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+
+//Get the area
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("_____________________________________________");
         Console.WriteLine("Welcome to Triangle. ");
-        int u = getUserChoice();
-        selectAlgo(u)
+        int choice = getUserChoice();
+        
+        
+        switch(choice)
+        {
+            //TRIGONOMETRIC (SAS)
+            case 1: 
+                sasCaller();
+                break;
+
+            //HERON (SSS)
+            case 2: 
+                heronCaller();
+                break;
+        }
 
     }
 
+
+    //Callers
+    public void sasCaller(){
+        Console.WriteLine("");
+    }
+
+     public void heronCaller(){
+        Console.WriteLine("");
+    }
     //Solving
-    //SAS
-    public double SAS(double side1, double side2, double angle)
+    //SASTrigonometric method
+    public double SAS(double a, double b, double angleC)
     {
         //convert angle to radians
-        Math.pow(side1, 2) + Math.pow(side2, 2) + 2 * side1 * side2 * Math
-        return 0.0;
-    }
-    //ASS
-    public double AAS(double side, double angle1, double angle2)
-    {
-
-        return 0.0;
+        double area = 0.5 * a * b * Math.Sin(DegreeToRadian(angleC));
+        return area;
     }
 
-    //AAA
-    public double AAA(double side, double angle1, double angle2)
-    {
-
-        return 0.0;
-    }
-
-    //SSS
-    public double SSS(double side1, double side2, double side3)
-    {
-        
-        return 0.0;
-    }
-
+    //Area using Heron's Formula
     public double heron(double side1, double side2, double side3)
     {
-        
-        return 0.0;
+        //Get the Semi Perimeter
+        double semi_p = (side1 + side2 + side3)/2
+
+        //Resolve wht's inside thhe square root in Heron's formula
+        double inner = (semi_p * (semi_p - a) * (semi_p - b) * (semi_p - c))
+
+        //square root the inner
+        area = Math.sqrt(inner);
+
+        return area;
     }
 
     public void selectAlgo(int choice)
@@ -56,6 +69,29 @@ class Program
     ///
 
 
+    //Utility
+    public static int getUserChoice()
+    {
+        bool choiceMade = true;
+        while (choiceMade)
+        {
+            Console.WriteLine("What type of trangle do you wish to get the area of? (Enter: 1/2)");
+            Console.WriteLine("\t3. SSA (Side, Side, Angle)");
+            Console.WriteLine("\t4. SSS (Side, Side, Side) but with Heron's formula");
+
+            if (int.TryParse(Console.ReadLine(), out int choice) || choice < 1 || choice > 2)
+            {
+                choiceMade = false;
+                return choice;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. (Choices are 1/2/3/4)\n ");
+            }
+        }
+        return 0;
+    }
+}
     //Utility
     public static int getUserChoice()
     {
