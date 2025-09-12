@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 /*
 TODO:
-Add error handling (make tryParse)
-Clean Console Text
 Clean file
 Comment
 */
@@ -45,7 +43,6 @@ class Program
 
             //Check if user wants to continue
             quit = quitChoice();
-            Console.WriteLine("print is: " + quit);
             if(quit == false){
                 Console.WriteLine("\nCongrats you get to live");
             }else if(quit == true){
@@ -57,23 +54,22 @@ class Program
 
     //Callers 
     public static void sasCaller(){
-        Console.WriteLine("\n Since you chose (SAS), we'll need the values from you!");
-        Console.WriteLine("Enter side 1:"); double side1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter side 2:"); double side2 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter the angle:"); double angle = int.Parse(Console.ReadLine());
+        Console.WriteLine("\nSince you chose (SAS), we'll need the values from you!");
+        double side1 = doubleGetUserIpnut("Enter side 1:"); 
+        double side2 = doubleGetUserIpnut("Enter side 2:");
+        double angle = doubleGetUserIpnut("Enter the angle:");
         double area = Math.Round(SAS(side1, side2, angle), 1);
-        Console.WriteLine("Yur area is: " + area);
+        Console.WriteLine("\nYour area is: " + area);
     }
 
      public static void heronCaller(){
-        Console.WriteLine("\n Since you chose (SSS), we'll need the values from you!");
-        Console.WriteLine("Enter side 1:"); double side1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter side 2:"); double side2 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter side 3"); double side3 = int.Parse(Console.ReadLine());
+        Console.WriteLine("\nSince you chose (SSS), we'll need the values from you!");
+        double side1 = doubleGetUserIpnut("Enter side 1:");
+        double side2 = doubleGetUserIpnut("Enter side 2:");
+        double side3 = doubleGetUserIpnut("Enter the angle:");
         double area = Math.Round(heron(side1, side2, side3), 1);
         Console.WriteLine("Yur area is: " + area);
     }
-
     //Solving
     //SASTrigonometric method
     public static double SAS(double a, double b, double angleC)
@@ -128,8 +124,29 @@ class Program
         return degrees * (Math.PI / 180);
     }
 
+    //Get User Input as String and convert to double
+    public static double doubleGetUserIpnut(String message){
+        bool answered = false;
+        String str = "";
+
+        while(!answered){
+            Console.WriteLine(message);
+            str = Console.ReadLine();
+            if (double.TryParse(str, out double choice))
+                { 
+                    return choice; 
+                    answered = true;
+                }
+                
+            else{}
+
+        
+        }
+        return 0;
+    }
+
     public static bool quitChoice(){
-        Console.WriteLine("Do you want to continue solving? (y/n)");  string choice = Console.ReadLine().ToLower();
+        Console.WriteLine("\nDo you want to continue solving? (y/n)");  string choice = Console.ReadLine().Trim().ToLower();
 
                 if(choice == "y"){
                     return false;
@@ -141,5 +158,4 @@ class Program
                 return true;
     }
 
-    
 }
