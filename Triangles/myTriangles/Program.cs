@@ -1,12 +1,13 @@
 using System;
-using System.Collections.Generic;
 /*
 TODO:
-Clean file
 Comment
 */
 
 //Get the area
+
+
+
 class Program
 {
     static bool quit = false;
@@ -66,9 +67,9 @@ class Program
         Console.WriteLine("\nSince you chose (SSS), we'll need the values from you!");
         double side1 = doubleGetUserIpnut("Enter side 1:");
         double side2 = doubleGetUserIpnut("Enter side 2:");
-        double side3 = doubleGetUserIpnut("Enter the angle:");
+        double side3 = doubleGetUserIpnut("Enter side 3:");
         double area = Math.Round(heron(side1, side2, side3), 1);
-        Console.WriteLine("Yur area is: " + area);
+        Console.WriteLine("Your area is: " + area);
     }
     //Solving
     //SASTrigonometric method
@@ -102,7 +103,7 @@ class Program
         while (choiceMade)
         {
             Console.WriteLine("What type of trangle do you wish to get the area of? (Enter: 1/2)");
-            Console.WriteLine("\t1. SSA (Side, Side, Angle)");
+            Console.WriteLine("\t1. SAS (Side, Side, Angle)");
             Console.WriteLine("\t2. SSS (Side, Side, Side) but with Heron's formula");
 
             if (int.TryParse(Console.ReadLine(), out int choice) || choice < 1 || choice > 2)
@@ -112,7 +113,7 @@ class Program
             }
             else
             {
-                Console.WriteLine("Invalid input. (Choices are 1/2/3/4)\n ");
+                Console.WriteLine("Invalid input. (Choices are 1/2/3/4)\n "); 
             }
         }
         return 0;
