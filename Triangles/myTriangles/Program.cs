@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 /*
 TODO:
-Add looping
+Add error handling (make tryParse)
 Clean Console Text
 Clean file
 Comment
@@ -15,10 +15,15 @@ class Program
 
     static void Main(string[] args)
     {
-        while(!quit){
+        int choice;
+        while(quit != true)
+        {
+            //resetting values
+            choice = 0;
+
             Console.WriteLine("\n_____________________________________________");
             Console.WriteLine("Welcome to Triangle. ");
-            int choice = getUserChoice();
+            choice = getUserChoice();
             
             
             switch(choice)
@@ -32,15 +37,25 @@ class Program
                 case 2: 
                     heronCaller();
                     break;
+
+                default:
+                    Console.WriteLine("Improper Input!");
+                    break;
             }
 
             //Check if user wants to continue
             quit = quitChoice();
+            Console.WriteLine("print is: " + quit);
+            if(quit == false){
+                Console.WriteLine("\nCongrats you get to live");
+            }else if(quit == true){
+                Console.WriteLine("\nHave a nice death");
+            }
 
         }
     }
 
-    //Callers
+    //Callers 
     public static void sasCaller(){
         Console.WriteLine("\n Since you chose (SAS), we'll need the values from you!");
         Console.WriteLine("Enter side 1:"); double side1 = int.Parse(Console.ReadLine());
@@ -84,7 +99,7 @@ class Program
     }
 
     
-    //Utility
+    //UTILITY
     public static int getUserChoice()
     {
         bool choiceMade = true;
@@ -114,8 +129,17 @@ class Program
     }
 
     public static bool quitChoice(){
-        Console.WriteLine("Do you want to continue solving? (y/n)");  bool choice = Console.ReadLine();
+        Console.WriteLine("Do you want to continue solving? (y/n)");  string choice = Console.ReadLine().ToLower();
 
-        return choice;
+                if(choice == "y"){
+                    return false;
+                }else if(choice == "n"){
+                    return true;
+                }
+
+                //If bad input is put, the program will assume the user does not want to continue
+                return true;
     }
+
+    
 }
