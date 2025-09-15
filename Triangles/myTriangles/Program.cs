@@ -192,3 +192,25 @@ class Program
     }
 
 }
+
+
+
+
+ bool validTriangle = isValidTriangle(side1, side2, side3); 
+
+        if(validTriangle){}
+        else{
+            return 0;
+        }
+
+
+
+
+//
+
+if(area <= 0){
+            Console.WriteLine("Please input resonable values");
+        }else{
+            Console.WriteLine("\nYour area is: " + area);
+        }
+    }
