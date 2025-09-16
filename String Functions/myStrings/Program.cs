@@ -1,28 +1,55 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
+/*
+TODO:
+1. Make Avg and Sum global variables. Add to, and call them when needed
+2. Create a main loop and abstract any "loose functions"
+3. Add Error handling (zeroDivisions, Wrong inputs(including "Enters"), etc. )
+4. Comment
+
+
+Avg calc isn't working because I'm summing averages rarther than calculating the average of averages
+*/
 public static class Program
 {
-
+    static bool quit = false;
+    public static double Sum = 0;
+    public static double Avg = 0;
     public static void Main(String[] args)
     {
+        while(quit != true)
+        {
+            Console.WriteLine("\n_____________________________________________");
+            Console.WriteLine("Welcome to Triangle. ");
 
-        Console.WriteLine("\n_____________________________________________");
-        Console.WriteLine("Welcome to Triangle. ");
+            // Prompt the user for which method (SAS or SSS/Heron) they want
+            string choice = getUserChoice();
+            IEnumerable<double> gen = Split(choice, ',');
+            Sum += SumCalc(gen);
+            Avg == AvgCalc(gen);
 
-        // Prompt the user for which method (SAS or SSS/Heron) they want
-        string choice = getUserChoice();
-        IEnumerable<double> gen = Split(choice, ',');
-        double sum = Sum(gen);
-        double avg = Avg(gen);
+            Console.WriteLine($"Your total is: {Sum} and your average is {Avg}");
 
-        Console.WriteLine($"Your total is: {sum} and your average is {avg}");
+            // After calculation, ask if the user wants to quit
+                quit = quitChoice();
+
+                // Cosmetic: print newline if continuing, or goodbye message if quitting
+                if (quit == false)
+                {
+                    Console.WriteLine("\n");
+                }
+                else if (quit == true)
+                {
+                    Console.WriteLine("\nGoodby User!");
+                }
+        }
     }
 
     // -------- Solving --------
-    public static double Sum(IEnumerable<double> gen)
+    public static double SumCalc(IEnumerable<double> gen)
     {
-        double  sum = 0;
+        double sum = 0;
         foreach (var part in gen)
         {
             sum += part;
@@ -30,11 +57,10 @@ public static class Program
         return sum;
     }
 
-    public static double Avg(IEnumerable<double> gen)
+    public static double AvgCalc(IEnumerable<double> gen)
     {
-        int count = 0;
         double sum = 0;
-
+        int count = 0;
         foreach (var part in gen)
         {
             count += 1;
@@ -45,6 +71,7 @@ public static class Program
 
         return avg;
     }
+
     // -------- Utilities ---------
     // Splits `text` on a single character delimiter
     public static IEnumerable<double> Split(string text, char delimiter)
@@ -74,7 +101,7 @@ public static class Program
         }
     }
 
-
+    //
     public static double stringToDouble(String str)
     {
         // Try parsing user input into a double
@@ -90,10 +117,29 @@ public static class Program
         return 0;
     }
 
-     public static string getUserChoice()
+    //
+    public static string getUserChoice()
     {
             Console.Write("\nEnter text to sum and avg:");
             string input = Console.ReadLine();
             return input;
+    }
+
+    //
+     public static bool quitChoice()
+    {
+        Console.WriteLine("\nDo you want to continue? (y/n)"); string choice = Console.ReadLine().Trim().ToLower();
+
+        if (choice == "y")
+        {
+            return false;
+        }
+        else if (choice == "n")
+        {
+            return true;
+        }
+
+        //If bad input is put, the program will assume the user does not want to continue
+        return true;
     }
 }
