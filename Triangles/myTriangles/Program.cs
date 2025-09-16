@@ -1,135 +1,203 @@
-﻿using System;
+using System;
 
 /*
 Author: @David_Ezima
 Purpose: Unit 1 Assingment #2 - Using Herons formula and trig to calculate the area of a triangle
 Description: This program will allow the user to choose the type of triangle they want to get the area of (Side Side Side (SSS) or Side Angle Side (SAS)).
-             Depending on the type of triangle chosen, either Heron (SSS) or Trig (SAS) will be chosen.
-             When they method has been chosen, the program will ask the user for the informations required (like the sides or angles), the it calculates and returns the answer to the user.
-             After this it asks the user if they want to play again, if they say yes it restarts, if no, the program gracefully ends. 
+            Depending on the type of triangle chosen, either Heron (SSS) or Trig (SAS) will be chosen.
+            When they method has been chosen, the program will ask the user for the informations required (like the sides or angles).
+             
+            at this point, IF the heron formula is used:
+                The program uses the fact that in a triangle the sum of any two sides should be greater than the third to validate if the triangle is possible.
+
+                IF the triangle is possible:
+                    Program continues
+                ELSE:
+                    program warns the user against picking unsuitable values and loops
+
+            ELSE IF the Trig method is used:
+                The program continues (no method to validate that I know of)
+
+           
+            Now the program calculates and returns the answer to the user.
+            After this it asks the user if they want to play again, if they say yes it restarts, if no, the program gracefully ends.
 */
 
 class Program
 {
-    static bool quit = false; //quit variable for the program loop
+    // Global quit flag for the main program loop
+    static bool quit = false;
 
     static void Main(string[] args)
     {
         int choice;
-        while (quit != true) //until the user wants to quit, loop
+
+        // Main program loop (keeps running until the user chooses to quit)
+        while (quit != true)
         {
-            //resetting values
+            // Reset choice at the start of each loop iteration
             choice = 0;
 
             Console.WriteLine("\n_____________________________________________");
             Console.WriteLine("Welcome to Triangle. ");
-            choice = getUserChoice(); //method to prompt the user to choose a type of triangle
 
+            // Prompt the user for which method (SAS or SSS/Heron) they want
+            choice = getUserChoice();
 
-            switch (choice) //switch to call the method of the traingle th user chose
+            // Decide which calculation method to call based on user input
+            switch (choice)
             {
-                //TRIGONOMETRIC (SAS)
                 case 1:
-                    Program.sasCaller(); //SAS - Side Angle Side. This calls the Trigonometric method called SAS
+                    // Case 1 = SAS (Trig formula)
+                    Program.sasCaller();
                     break;
 
-                //HERON (SSS)
                 case 2:
-                    heronCaller(); //THis calls the method that uses Herons formula
+                    // Case 2 = SSS (Heron's formula)
+                    heronCaller();
                     break;
 
                 default:
+                    // Input didn't match 1 or 2
                     Console.WriteLine("Improper Input!");
-                    break; //This runs if the user provides something unexpected
+                    break;
             }
 
-            //Check if user wants to continue and give them a message depending on their answer
+            // After calculation, ask if the user wants to quit
             quit = quitChoice();
+
+            // Cosmetic: print newline if continuing, or goodbye message if quitting
             if (quit == false)
             {
-                Console.WriteLine("\n"); //If the user wants to continue, no need for a message.
+                Console.WriteLine("\n");
             }
             else if (quit == true)
             {
                 Console.WriteLine("\nGoodby User!");
             }
-
         }
     }
 
-    //Callers - Methods used to call other functions
+    // ----- CALLER METHODS -----
 
     /*
-    This is a "Wrapper" around the SAS method (Trig) used to collect the values it needs for the calculations from the user. 
-    After it has the values, it calls the method.
+    Wrapper for the SAS (Trig) method.
+    Handles user input (two sides and an angle), then calls SAS().
     */
     public static void sasCaller()
     {
         Console.WriteLine("\nSince you chose (SAS), we'll need the values from you!");
+
+        // Collect values from user
         double side1 = doubleGetUserInput("Enter side 1:");
         double side2 = doubleGetUserInput("Enter side 2:");
         double angle = doubleGetUserInput("Enter the angle:");
+
+        // Call SAS formula and round result
         double area = Math.Round(SAS(side1, side2, angle), 1);
-        Console.WriteLine("\nYour area is: " + area);
+
+        if (area <= 0)
+        {
+            Console.WriteLine("Please input resonable values");
+        }
+        else
+        {
+            Console.WriteLine("\nYour area is: " + area);
+        }
     }
 
-
     /*
-    This is a "Wrapper" around the Heron method used to collect the values it needs for the calculations from the user via the doubleGetUserInput method. 
-    After it has the values, it calls the method.
+    Wrapper for the Heron method.
+    Handles user input (three sides), then calls heron().
     */
     public static void heronCaller()
     {
         Console.WriteLine("\nSince you chose (SSS), we'll need the values from you!");
+
+        // Collect side lengths
         double side1 = doubleGetUserInput("Enter side 1:");
         double side2 = doubleGetUserInput("Enter side 2:");
         double side3 = doubleGetUserInput("Enter side 3:");
+
+        // Call Heron's formula and round result
         double area = Math.Round(heron(side1, side2, side3), 1);
-        Console.WriteLine("Your area is: " + area);
+
+        // If result is <= 0, triangle was invalid
+        if (area <= 0)
+        {
+            Console.WriteLine("Please input resonable values");
+        }
+        else
+        {
+            Console.WriteLine("\nYour area is: " + area);
+        }
     }
 
+    // ----- SOLVING METHODS -----
 
-    //Solving - Methods that do the actual computation
-
-
-    //SAS - Trigonometric method
-    public static double SAS(double a, double b, double angleC) //Takes in two sides and an angle (doubles)
+    /*
+    SAS Method (Trig formula).
+    Formula: Area = 0.5 * a * b * sin(C)
+    Angle must be in degrees, so it's converted to radians.
+    */
+    public static double SAS(double a, double b, double angleC)
     {
-        //Uses the Area = 0.5 * a * b * Sin(C) function
-        double area = 0.5 * a * b * Math.Sin(DegreeToRadian(angleC));
-        return area;
+        if ((angleC >= 0 || angleC <= 180) && (a >= 0) && (b >= 0))//Checks if the angle is between 0 and 180 exclusive; Checks if a and b are greater than 0
+        {
+            double area = 0.5 * a * b * Math.Sin(DegreeToRadian(angleC));
+            return area;
+        }
+        else
+        {
+            return 0;
+        }
+       
     }
 
-    //Area using Heron's Formula
+    /*
+    Heron's Formula.
+    Formula: sqrt(s * (s-a) * (s-b) * (s-c)) where s = semi-perimeter.
+    */
     public static double heron(double side1, double side2, double side3)
     {
-        //Get the Semi Perimeter
+        // First validate the triangle
+        bool validTriangle = isValidTriangle(side1, side2, side3);
+
+        if (!validTriangle)
+        {
+            return 0;
+        }
+
+        // Calculate semi-perimeter
         double semi_p = (side1 + side2 + side3) / 2;
 
-        //Resolve wht's inside thhe square root in Heron's formula
+        // Calculate inside of the square root
         double inner = (semi_p * (semi_p - side1) * (semi_p - side2) * (semi_p - side3));
 
-        //square root the inner
+        // Take square root to get area
         double area = Math.Sqrt(inner);
 
         return area;
     }
 
+    // ----- UTILITY METHODS -----
 
-    //UTILITY - Methods made to abstract functionality and enable non-C# inherent actions
-
-
-    /*Gets the user choice of Triangle. Erros handles unwanted input. */
+    /*
+    Prompts user to choose triangle type.
+    Returns 1 (SAS) or 2 (SSS).
+    Includes error handling for invalid inputs.
+    */
     public static int getUserChoice()
     {
         bool choiceMade = true;
+
         while (choiceMade)
         {
             Console.WriteLine("What type of trangle do you wish to get the area of? (Enter: 1/2)");
             Console.WriteLine("\t1. SAS (Side, Side, Angle)");
             Console.WriteLine("\t2. SSS (Side, Side, Side) but with Heron's formula");
 
-            if (int.TryParse(Console.ReadLine(), out int choice) || choice < 1 || choice > 2)
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 1 && choice <= 2) //If the number can be parsed && it is 1 or 2
             {
                 choiceMade = false;
                 return choice;
@@ -142,41 +210,61 @@ class Program
         return 0;
     }
 
-    /*Converts degrees to radians*/
+    /*
+    Converts degrees to radians for Math.Sin().
+    */
     public static double DegreeToRadian(double degrees)
     {
         return degrees * (Math.PI / 180);
     }
 
-
-    /* Get User Input as String and convert to double*/
-    public static double doubleGetUserInput(String message) //accepts a message of type string. 
+    /*
+    Generic user input method that prompts with a message and returns a double.
+    Keeps looping until a valid number is entered.
+    */
+    public static double doubleGetUserInput(String message)
     {
-        bool answered = false; //used to check if the user has properly ansered the prompt.
-        String str = ""; //Assignment of the input value because of C#'s quirkiness
+        bool answered = false;
+        String str = "";
 
-        while (!answered) //While not answered, continue to prompt the user repeatedly
+        while (!answered)
         {
             Console.WriteLine(message);
             str = Console.ReadLine();
+
+            // Try parsing user input into a double
             if (double.TryParse(str, out double choice))
             {
                 answered = true;
                 return choice;
-                
             }
-
-            else { }
-
-
+            else
+            {
+                Console.WriteLine("Invalid input, please enter a number.");
+            }
         }
         return 0;
     }
 
-    /*Asks the user if they wish to quit. Error handles unwanted input.*/
+    /*
+    Checks if a triangle is valid.
+    Condition: The sum of any two sides must be greater than the third.
+    */
+    public static bool isValidTriangle(double a, double b, double c)
+    {
+        return a + b > c && a + c > b && b + c > a;
+    }
+
+    /*
+    Asks the user if they wish to quit.
+    Accepts 'y' (continue) or 'n' (quit).
+    Defaults to quitting on bad input.
+    */
     public static bool quitChoice()
     {
-        Console.WriteLine("\nDo you want to continue solving? (y/n)"); string choice = Console.ReadLine().Trim().ToLower();
+        Console.WriteLine("\nDo you want to continue solving? (y/n)");
+
+        string choice = Console.ReadLine().Trim().ToLower();
 
         if (choice == "y")
         {
@@ -187,30 +275,7 @@ class Program
             return true;
         }
 
-        //If bad input is put, the program will assume the user does not want to continue
+        // On invalid input, assume quit
         return true;
     }
-
 }
-
-
-
-
- bool validTriangle = isValidTriangle(side1, side2, side3); 
-
-        if(validTriangle){}
-        else{
-            return 0;
-        }
-
-
-
-
-//
-
-if(area <= 0){
-            Console.WriteLine("Please input resonable values");
-        }else{
-            Console.WriteLine("\nYour area is: " + area);
-        }
-    }
