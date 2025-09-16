@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/bin/Debug/net9.0/myStrings
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/bin/Debug/net9.0/myStrings.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/bin/Debug/net9.0/myStrings.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/bin/Debug/net9.0/myStrings.dll
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/bin/Debug/net9.0/myStrings.pdb
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.dll
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/refint/myStrings.dll
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.pdb
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/myStrings.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/String Functions/myStrings/obj/Debug/net9.0/ref/myStrings.dll
