@@ -16,6 +16,7 @@ public static class Program
     static bool quit = false;
     public static double Sum = 0;
     public static double Avg = 0;
+    public static double Count = 0;
     public static void Main(String[] args)
     {
         while(quit != true)
@@ -26,8 +27,9 @@ public static class Program
             // Prompt the user for which method (SAS or SSS/Heron) they want
             string choice = getUserChoice();
             IEnumerable<double> gen = Split(choice, ',');
+            Avg = AvgCalc(gen, Sum);
             Sum += SumCalc(gen);
-            Avg == AvgCalc(gen);
+            
 
             Console.WriteLine($"Your total is: {Sum} and your average is {Avg}");
 
@@ -57,17 +59,16 @@ public static class Program
         return sum;
     }
 
-    public static double AvgCalc(IEnumerable<double> gen)
+    public static double AvgCalc(IEnumerable<double> gen, double prevSum)
     {
-        double sum = 0;
-        int count = 0;
+        double sum = prevSum;
         foreach (var part in gen)
         {
-            count += 1;
+            Count += 1;
             sum += part;
         }
 
-        double avg = Math.Round(sum / count, 1);
+        double avg = Math.Round(sum / Count, 1);
 
         return avg;
     }
