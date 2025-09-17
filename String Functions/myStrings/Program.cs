@@ -11,6 +11,13 @@ TODO:
 
 Avg calc isn't working because I'm summing averages rarther than calculating the average of averages
 */
+
+/*
+Ask:
+1. Can we use any data types other than arrays and lists?
+2. Is it necessary for the user to be able to exit the program at the beginning (remember quitChoice is at the end of each loop)
+3. //This is seemingly the wrong approach 
+*/
 public static class Program
 {
     static bool quit = false;
@@ -24,16 +31,25 @@ public static class Program
             Console.WriteLine("\n_____________________________________________");
             Console.WriteLine("Welcome to Triangle. ");
 
-            // Prompt the user for which method (SAS or SSS/Heron) they want
-            string choice = getUserChoice();
-            IEnumerable<double> gen = Split(choice, ',');
-            Avg = AvgCalc(gen, Sum);
-            Sum += SumCalc(gen);
-            
+            // Prompt the user to enter their numbers
+            string input = getUserInput();
+            IEnumerable<double> gen = Split(input, ' ');
 
-            Console.WriteLine($"Your total is: {Sum} and your average is {Avg}");
+            // Checks the generator returned for errors
+            int errorPresent = errorCheck(gen); //Returns 0 if no errors persent, else -1
 
-            // After calculation, ask if the user wants to quit
+            // If no errors, proceed as usual. ELSE tell the user to stop putting erroneous input and prompt them to either continue the program or quit
+            if(errorPresent == 0){
+                //No errors
+                Avg = AvgCalc(gen, Sum);
+                Sum += SumCalc(gen);
+                Console.WriteLine($"Your total is: {Sum} and your average is {Avg}");
+            }else{
+                //Erroneous input
+                Console.WriteLine("\nInvalid input, please enter a valid number next time.\n");
+
+            }
+            // After calculation or if errors, ask if the user wants to quit
                 quit = quitChoice();
 
                 // Cosmetic: print newline if continuing, or goodbye message if quitting
@@ -49,6 +65,7 @@ public static class Program
     }
 
     // -------- Solving --------
+    // Adds all the numbers in the generator
     public static double SumCalc(IEnumerable<double> gen)
     {
         double sum = 0;
@@ -59,6 +76,7 @@ public static class Program
         return sum;
     }
 
+    // Averages all the numbers in the generator, but also includes the sum from the previous round(if first round, set to 0)
     public static double AvgCalc(IEnumerable<double> gen, double prevSum)
     {
         double sum = prevSum;
@@ -102,31 +120,48 @@ public static class Program
         }
     }
 
-    //
+    // Turns strings to Doubles, and error handles along the way
     public static double stringToDouble(String str)
     {
-        // Try parsing user input into a double
-        if (double.TryParse(str, out double integer))
+        // Try parsing user input into a double. No negative numbers are allowed
+        if (double.TryParse(str, out double integer) && integer >= 0)
         {
             return integer;
         }
         else
         {
-            Console.WriteLine("\nInvalid input, please enter a valid number next time.\n");
+            //Erroneous input
         }
 
-        return 0;
+        return -1;
     }
 
-    //
-    public static string getUserChoice()
+    // Asks the user for input
+    public static string getUserInput()
     {
-            Console.Write("\nEnter text to sum and avg:");
+            Console.Write("\nEnter text to sum and avg (E.g. 50 30 40 60): ");
             string input = Console.ReadLine();
             return input;
     }
 
-    //
+    /*
+    Checks for errors by checking if -1 is returned (stringToDouble is set to return -1 if the string isn't parsable or is less than 0) 
+    */
+    public static int errorCheck(IEnumerable<double> gen)
+    {
+            foreach (var item in gen)
+            {
+                if(item < 0 ){
+                    return -1; //Erroneous
+                }
+            }
+
+            return 0; //clean 
+    }
+
+    //R,
+
+    // Asks the user if they wish to quit
      public static bool quitChoice()
     {
         Console.WriteLine("\nDo you want to continue? (y/n)"); string choice = Console.ReadLine().Trim().ToLower();
