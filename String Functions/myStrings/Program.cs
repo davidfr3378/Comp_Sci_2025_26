@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 /*
@@ -24,12 +24,12 @@ public static class Program
     public static double Sum = 0;
     public static double Avg = 0;
     public static double Count = 0;
-    public static void Main(String[] args)
+    public static void main(String[] args)
     {
         while(quit != true)
         {
             Console.WriteLine("\n_____________________________________________");
-            Console.WriteLine("Welcome to Triangle. ");
+            Console.WriteLine("Welcome to AverageAdder");
 
             // Prompt the user to enter their numbers
             string input = getUserInput();
@@ -139,7 +139,7 @@ public static class Program
     // Asks the user for input
     public static string getUserInput()
     {
-            Console.Write("\nEnter text to sum and avg (E.g. 50 30 40 60): ");
+            Console.Write("\nEnter a space seperated list of numbers (or type 'exit' to quit): ");
             string input = Console.ReadLine();
             return input;
     }
