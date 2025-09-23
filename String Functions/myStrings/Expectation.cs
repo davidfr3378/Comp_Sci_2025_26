@@ -48,7 +48,7 @@ class Expectation
                 // At this point the Sum and Average have been calculated
 
                 // Display the sum and average to the user
-                Console.WriteLine($"Your total is: {Sum} and your average is {Avg}");
+                Console.WriteLine($"Your total is: {Sum} and your average is {Math.Round(Avg, 1)}");
 
             }
 
@@ -139,20 +139,26 @@ class Expectation
         string strDone = ""; // Will contains numbers that have been counted
         string strCount = ""; // Will Contains the counts of numbers.
 
-        foreach (var number in arr){
+        foreach (var number in arr)
+        {
             string principalString = "";
             int count = 0;
 
-            if (!strDone.Contains(number)){
+            if (!strDone.Contains(number))
+            {
                 strDone += $" {number}";
                 principalString = number;
-                foreach (var str in arr){
-                    if(str == principalString){
+                foreach (var str in arr)
+                {
+                    if (str == principalString)
+                    {
                         count += 1;
                     }
-                } 
+                }
                 strCount += $" {count}";
-            }else{
+            }
+            else
+            {
                 continue;
             }
         }
@@ -170,9 +176,11 @@ class Expectation
         bool isInList = prevNumbers.Contains(input);
         if (isInList)
         {
-            Console.WriteLine($"Yes {input} is in the list\n");
-        }else{
-            Console.WriteLine($"No, {input} is not in the list");
+            Console.WriteLine($"\nYes {input} is in the list\n");
+        }
+        else
+        {
+            Console.WriteLine($"\nNo, {input} is not in the list");
         }
 
         // Print the numbers in reverse
