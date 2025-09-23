@@ -28,7 +28,7 @@ class Expectation
 
             if (quit == true)
             {
-                Quit();
+                Quit(prevNumbers);
                 break;
             }
             else //Else proceed with the program
@@ -126,21 +126,58 @@ class Expectation
         }
     }
 
+
     // Called when the user decieds to quit
-    public static void Quit()
-    {
+    public static void Quit(string numbers)
+    { //TODO: David you're allowed to use classes.
+        /*
+            Section 1 will count the numbers using the following algorithm:
+
+        */
+        //Split the string of all numbers
+        String[] arr = numbers.Split();
+        string strDone = ""; // Will contains numbers that have been counted
+        string strCount = ""; // Will Contains the counts of numbers.
+
+        foreach (var number in arr){
+            string principalString = "";
+            int count = 0;
+
+            if (!strDone.Contains(number)){
+                strDone += $" {number}";
+                principalString = number;
+                foreach (var str in arr){
+                    if(str == principalString){
+                        count += 1;
+                    }
+                } 
+                strCount += $" {count}";
+            }else{
+                continue;
+            }
+        }
+        Console.WriteLine($"numbers: {numbers}");
+        Console.WriteLine($"Done: {strDone}");
+        Console.WriteLine($"Count: {strCount}");
+
+
+        /*
+
+        */
         // Check if a number is in the list
-        Console.WriteLine("\nEnter a number to cehck if it's in the list");
+        Console.WriteLine("\nEnter a number to check if it's in the list");
         string input = Console.ReadLine().Trim().ToLower();
         bool isInList = prevNumbers.Contains(input);
         if (isInList)
         {
             Console.WriteLine($"Yes {input} is in the list\n");
+        }else{
+            Console.WriteLine($"No, {input} is not in the list");
         }
 
         // Print the numbers in reverse
         Console.WriteLine("Numbers in reverse order:" + reverseNumbers.Trim());
 
-        Console.WriteLine("\nGoodby User!.\n");
+        Console.WriteLine("\nGoodby User!\n");
     }
 }
