@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using Microsoft.VisualBasic;
 class Expectation
 {
     static bool quit = false;
@@ -126,6 +127,38 @@ class Expectation
         }
     }
 
+    //Split implementation
+    // Splits `text` on a single character delimiter
+    public static IEnumerable<string> Split(string text, char delimiter)
+    {
+        if (text == null)
+            throw new ArgumentNullException(nameof(text));
+
+        int start = 0;  // start index of the current segment
+
+        for (int i = 0; i < text.Length; i++)
+        {
+
+            if (text[i] == delimiter)
+            {
+                // slice from start to i (exclusive)
+                string str = text.Substring(start, i - start);
+                yield return str;
+                start = i + 1; // move past the delimiter
+            }
+        }
+
+        // yield the last segment (after the last delimiter)
+        if (start <= text.Length)
+        {
+            string str = text.Substring(start);
+            yield return str;
+        }
+    }
+
+
+
+
 
     // Called when the user decieds to quit
     public static void Quit(string numbers)
@@ -162,11 +195,18 @@ class Expectation
                 continue;
             }
         }
-        Console.WriteLine($"numbers: {numbers}");
-        Console.WriteLine($"Done: {strDone}");
-        Console.WriteLine($"Count: {strCount}");
-
-
+        //Iterate and print the counts
+        using (var strD = Split(strDone, ' ').GetEnumerator())
+        using (var strC = Split(strCount, ' ').GetEnumerator())
+        {
+            while (strD.MoveNext() && strC.MoveNext())
+            {
+                if (strC.Current != "")
+                {
+                    Console.WriteLine($"[{strD.Current}] → Count: [{strC.Current}]");
+                }
+            }
+        }
         /*
 
         */
