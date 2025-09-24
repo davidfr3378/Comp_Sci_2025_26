@@ -128,24 +128,27 @@ class Expectation
             return -1;
         }
     }
-    //TODO: Comment
-    // Split implementation
-    // Splits `text` on a single character delimiter
-    public static IEnumerable<string> Split(string text, char delimiter)
+
+    /*
+    Splits text on a single character delimiter. 
+
+    Returns an Iteratable object that outputs the tokens on demand
+    */
+    public static IEnumerable<string> Split(string text, char delimiter) //Takes a string (text) and a char (delimeter)
     {
         if (text == null)
-            throw new ArgumentNullException(nameof(text));
+            Console.WriteLine("Please input some values!");
 
-        int start = 0;  // start index of the current segment
+        int start = 0;  //start index (functions as a pointer for my purposes)
 
-        for (int i = 0; i < text.Length; i++)
+        for (int i = 0; i < text.Length; i++) //While the "pointer" is within the string
         {
 
-            if (text[i] == delimiter)
+            if (text[i] == delimiter) //If we are currently pointing to the delimeter,
             {
-                // slice from start to i (exclusive)
+                //Slice from start to i (exclusive)
                 string str = text.Substring(start, i - start);
-                yield return str;
+                yield return str; //yield the slice
                 start = i + 1; // move past the delimiter
             }
         }
@@ -153,52 +156,51 @@ class Expectation
         // yield the last segment (after the last delimiter)
         if (start <= text.Length)
         {
-            string str = text.Substring(start);
-            yield return str;
+            string str = text.Substring(start);  //Slice from start to end of string
+            yield return str; //yield the last slice
         }
     }
-
-
-
 
     //TODO: Comment
     // Called when the user decieds to quit
     public static void Quit(string numbers)
-    { //TODO: David you're allowed to use classes.
-        /*
-            Section 1 will count the numbers using the following algorithm:
+    { 
+        /*SECTION 1: Count the frequency of each number*/
 
-        */
         //Split the string of all numbers
         String[] arr = numbers.Split();
         string strDone = ""; // Will contains numbers that have been counted
         string strCount = ""; // Will Contains the counts of numbers.
 
-        foreach (var number in arr)
+        foreach (var number in arr) //For each number in the array,
         {
-            string principalString = "";
-            int count = 0;
+            string principalString = ""; //contains the string being counted
+            int count = 0; //contains the current count 
 
-            if (!strDone.Contains(number))
+            if (!strDone.Contains(number)) //If strDone does not contain the value, it means it has not been counted
             {
-                strDone += $" {number}";
-                principalString = number;
-                foreach (var str in arr)
+                strDone += $" {number}"; //Add the value to strDone
+                principalString = number; //set principalString to the value
+                foreach (var str in arr) 
                 {
-                    if (str == principalString)
+                    /*If the string in the array is equal to the principalString, they are the same, and thus we can increase the count of value */
+                    if (str == principalString) 
                     {
                         count += 1;
                     }
                 }
-                strCount += $" {count}";
+                strCount += $" {count}"; //When counting is finished, add the final count to strCount
             }
-            else
+            else //If the number in strDone then it has already been counted
             {
-                continue;
+                continue; //Go to the next number
             }
         }
-        //Iterate and print the counts
-        using (var strD = Split(strDone, ' ').GetEnumerator())
+
+        /*SECTION 2: Display the frequency*/
+
+        //"using" keyword used for resource management
+        using (var strD = Split(strDone, ' ').GetEnumerator()) 
         using (var strC = Split(strCount, ' ').GetEnumerator())
         {
             while (strD.MoveNext() && strC.MoveNext())
@@ -232,4 +234,4 @@ class Expectation
     }
 }
 
-//TODO: Yes three is in the list
+//TODO: Yes threee is in the list
