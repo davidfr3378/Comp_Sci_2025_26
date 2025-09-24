@@ -1,49 +1,50 @@
-using System;
-using System.Runtime.CompilerServices;
-using Microsoft.VisualBasic;
+using System; // Import for functionality
+
 class Expectation
 {
-    static bool quit = false;
-    public static double Sum = 0;
-    public static double Avg = 0;
-    public static int Count = 0;
+    static bool quit = false; // Flag for main while loop
+    public static double Sum = 0; // Global variable for running sum
+    public static double Avg = 0; // Global variable for current average
+    public static int Count = 0; //Global variable for the current count of numbers
 
-    public static string prevNumbers = "";
+    public static string prevNumbers = ""; // Global variable to store all numbers inputted
 
-    public static string reverseNumbers = "";
+    public static string reverseNumbers = ""; // Global varaible to store the current numbers reversed 
     public static void Main(String[] args)
     {
-        while (quit != true)
+        //
+        while (quit != true) //Main while loop. Exiting this ends the program softly
         {
             Console.WriteLine("\n_____________________________________________");
             Console.WriteLine("Welcome to AverageAdder. ");
 
             // Prompt the user to enter their numbers
-            string input = getUserInput().Trim().ToLower();
+            string input = getUserInput().Trim().ToLower(); //Gets the user input and transforms it to remmove irregularities. 
 
             // Split the input accoding to spaces.
-            String[] arrInput = input.Split();
+            String[] arrInput = input.Split(); 
 
             // Check if the user wants to exit
             quit = checkExit(arrInput[0]);
 
-            if (quit == true)
+            if (quit == true) //If user wants to exit
             {
-                Quit(prevNumbers);
-                break;
+                Quit(prevNumbers); //Call the Quit function which contains the exit sequence (i.e. SHow number frequency, check if number is in list, etc.)
+                break; // After exit sequence, leave
             }
-            else //Else proceed with the program
+            else 
             {
                 // Add the values in the array (convert to string then add). If error occured, returns -1
                 int add = Adder(arrInput);
-                if (add < 0) // An error occured with addig values
+                if (add < 0) // An error occured with adding values
                 {
                     Console.WriteLine("\nInvalid input, please enter a valid number next time.\n");
-                    quit = true;
-                    break;
+                    quit = true; //Will cause the exit sequence to be called in the next loop
+                    continue; //GOes to next loop
                 }
                 else
                 {
+                    //Gets the average of all numbrs (uses the Count as denominator)
                     Average(Sum, Count); // No need to check for errors because adder already does so.
                 }
                 // At this point the Sum and Average have been calculated
@@ -70,6 +71,7 @@ class Expectation
     // Check if the user wants to exit | True = Exit, False = Continue
     public static bool checkExit(string str)
     {
+        //"str" contins the users choice
         if (str == "exit")
         {
             return true;
@@ -83,7 +85,7 @@ class Expectation
     // Add the numbers in the String Array together
     public static int Adder(String[] arr)
     {
-        foreach (var Item in arr)
+        foreach (var Item in arr) // For each number in the array,
         {
             double val = stringToDouble(Item); // Tries to turn the string into a number (Error Checks for bad input)
 
@@ -94,12 +96,12 @@ class Expectation
                 prevNumbers = prevNumbers + val + " "; // Add the number to the end of previous numbers string
                 reverseNumbers = val + " " + reverseNumbers; // Add the number to the front of reverse numbers
             }
-            else
+            else //Erroneous input
             {
-                return -1;
+                return -1; 
             }
         }
-        return 0;
+        return 0; // No errors
     }
 
     // Get's the average by receiving running sum and count.
@@ -118,7 +120,7 @@ class Expectation
         // Try parsing user input into a double. No negative numbers are allowed
         if (double.TryParse(str, out double val) && val >= 0)
         {
-            return val;
+            return val; //No errors, so return value as a double
         }
         else
         {
@@ -126,8 +128,8 @@ class Expectation
             return -1;
         }
     }
-
-    //Split implementation
+    //TODO: Comment
+    // Split implementation
     // Splits `text` on a single character delimiter
     public static IEnumerable<string> Split(string text, char delimiter)
     {
@@ -159,7 +161,7 @@ class Expectation
 
 
 
-
+    //TODO: Comment
     // Called when the user decieds to quit
     public static void Quit(string numbers)
     { //TODO: David you're allowed to use classes.
@@ -226,6 +228,8 @@ class Expectation
         // Print the numbers in reverse
         Console.WriteLine("Numbers in reverse order:" + reverseNumbers.Trim());
 
-        Console.WriteLine("\nGoodby User!\n");
+        Console.WriteLine("\nGoodbye User!\n");
     }
 }
+
+//TODO: Yes three is in the list
