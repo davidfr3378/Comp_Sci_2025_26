@@ -227,16 +227,23 @@ class Expectation
 
         using (var prevN = Split(prevNumbers, ' ').GetEnumerator()) // Access the enumerator objects
         {
+            bool numFound = false;
             while (prevN.MoveNext()) // While there is a string present
             {
                 if (prevN.Current != "" && prevN.Current == input) // If the string is not empty and the string is equal to the input
                 {
-                    Console.WriteLine($"yes, [{prevN.Current}] is in the list"); 
+                    Console.WriteLine($"YES, [{prevN.Current}] is in the list"); 
+                    numFound = true;
                     break;// Print "[String] is in the list"
                 }
-                Console.WriteLine($"No, [{prevN.Current}] is not in the list");
+                
             }
+            if(numFound ==false) //if you have run through and not found the number
+                Console.WriteLine($"NO, [{prevN.Current}] is not in the list"); 
+            
         }
+            
+        
 
         // Print the numbers in reverse
         Console.WriteLine("\nNumbers in reverse order:" + reverseNumbers.Trim()); //Print the list in reverse order
@@ -244,5 +251,3 @@ class Expectation
         Console.WriteLine("\nGoodbye User!\n"); 
     }
 }
-
-//TODO: Yes threee is in the list
