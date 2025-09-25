@@ -39,7 +39,7 @@ class Expectation
                 if (add < 0) // An error occured with adding values
                 {
                     Console.WriteLine("\nInvalid input, please enter a valid number next time.\n");
-                    quit = true; //Will cause the exit sequence to be called in the next loop
+                    //quit = true; //Will cause the exit sequence to be called in the next loop
                     continue; //GOes to next loop
                 }
                 else
@@ -165,7 +165,9 @@ class Expectation
     // Called when the user decieds to quit
     public static void Quit(string numbers)
     { 
-        /*SECTION 1: Count the frequency of each number*/
+        /*
+        SECTION 1: Count the frequency of each number
+        */
 
         //Split the string of all numbers
         String[] arr = numbers.Split();
@@ -197,40 +199,49 @@ class Expectation
             }
         }
 
-        /*SECTION 2: Display the frequency*/
+        /*
+        SECTION 2: Display the frequency
+        */
 
         //"using" keyword used for resource management
-        using (var strD = Split(strDone, ' ').GetEnumerator()) 
-        using (var strC = Split(strCount, ' ').GetEnumerator())
+        using (var strD = Split(strDone, ' ').GetEnumerator()) // Access the enumerator objects
+        using (var strC = Split(strCount, ' ').GetEnumerator()) // Access the enumerator objects
         {
-            while (strD.MoveNext() && strC.MoveNext())
+            while (strD.MoveNext() && strC.MoveNext()) // WHile there is a string present
             {
-                if (strC.Current != "")
+                if (strC.Current != "") // If the string is not empty
                 {
-                    Console.WriteLine($"[{strD.Current}] → Count: [{strC.Current}]");
+                    Console.WriteLine($"[{strD.Current}] → Count: [{strC.Current}]"); // Print "[String] → Count: [frequency]"
                 }
             }
         }
-        /*
 
+        /*
+        SECTION 3: Other quit requirements
         */
         // Check if a number is in the list
-        Console.WriteLine("\nEnter a number to check if it's in the list");
-        string input = Console.ReadLine().Trim().ToLower();
-        bool isInList = prevNumbers.Contains(input);
-        if (isInList)
+        Console.WriteLine("\nEnter a number to check if it's in the list"); 
+        string input = "";
+        input += Console.ReadLine().Trim().ToLower(); //Get the user input
+
+
+        using (var prevN = Split(prevNumbers, ' ').GetEnumerator()) // Access the enumerator objects
         {
-            Console.WriteLine($"\nYes {input} is in the list\n");
-        }
-        else
-        {
-            Console.WriteLine($"\nNo, {input} is not in the list");
+            while (prevN.MoveNext()) // While there is a string present
+            {
+                if (prevN.Current != "" && prevN.Current == input) // If the string is not empty and the string is equal to the input
+                {
+                    Console.WriteLine($"yes, [{prevN.Current}] is in the list"); 
+                    break;// Print "[String] is in the list"
+                }
+                Console.WriteLine($"No, [{prevN.Current}] is not in the list");
+            }
         }
 
         // Print the numbers in reverse
-        Console.WriteLine("Numbers in reverse order:" + reverseNumbers.Trim());
+        Console.WriteLine("\nNumbers in reverse order:" + reverseNumbers.Trim()); //Print the list in reverse order
 
-        Console.WriteLine("\nGoodbye User!\n");
+        Console.WriteLine("\nGoodbye User!\n"); 
     }
 }
 
