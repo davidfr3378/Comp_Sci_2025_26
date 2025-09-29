@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics.Tracing;
+using System.Runtime.InteropServices;
 
 public class Program
 {
@@ -20,38 +22,31 @@ public class Program
 
     public static int[] getDonoAmounts()
     {
-        Console.WriteLine("Enter school index (0-6) or -1 to exit: ");
-        int schIndex = (int) doubleGetUserInput(Console.ReadLine());
+        Console.WriteLine("Enter school index (0-6) or -1 to exit: "); int schIndex = -1;
+        if (((int) doubleGetUserInput(Console.ReadLine())) > 0)
+            schIndex = (int) doubleGetUserInput(Console.ReadLine());
 
         Console.WriteLine("Enter donation amount ($5, $10, $20, $50, $100): ");
         int donoAmount = (int) doubleGetUserInput(Console.ReadLine());
 
 
 
-        int[] a = { schIndex, donoAmount};
+        int[] a = {schIndex, donoAmount};
         return a;
     }
 
-    public static double doubleGetUserInput(String message)
+    public static double doubleGetUserInput(String strNum)
     {
         bool answered = false;
         String str = "";
 
         while (!answered)
         {
-            Console.WriteLine(message);
-            str = Console.ReadLine();
-
             // Try parsing user input into a double
-            if (double.TryParse(str, out double choice))
-            {
-                answered = true;
-                return choice;
-            }
+            if (double.TryParse(strNum, out double num) && num >= 0)
+                return num;
             else
-            {
-                Console.WriteLine("Invalid input, please enter a number.");
-            }
+                return -1;
         }
         return 0;
     }
