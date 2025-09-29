@@ -26,10 +26,9 @@ public class Program
         if (((int) doubleGetUserInput(Console.ReadLine())) > 0)
             schIndex = (int) doubleGetUserInput(Console.ReadLine());
 
-        Console.WriteLine("Enter donation amount ($5, $10, $20, $50, $100): ");
-        int donoAmount = (int) doubleGetUserInput(Console.ReadLine());
-
-
+        Console.WriteLine("Enter donation amount ($5, $10, $20, $50, $100): "); int donoAmount = -1;
+        if (((int) doubleGetUserInput(Console.ReadLine())) > 0)
+            donoAmount = (int) doubleGetUserInput(Console.ReadLine());
 
         int[] a = {schIndex, donoAmount};
         return a;
