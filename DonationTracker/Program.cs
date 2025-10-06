@@ -4,9 +4,10 @@ public class Program
 {
     static bool exit = false;
     static int[] demonimations = {5,10,20,50,100};
+    static int[,] arrSchools = new int[7,5];
     public static void Main(String[] args)
     {
-        int[7, 5] arrSchools = new int[];
+
 
         //
         Console.WriteLine("______________________________________________");
@@ -23,14 +24,13 @@ public class Program
         while (exit == false)
         {
 
-
             //Input loop and info updateh
             int[] donoAmounts = getDonoAmounts();
 
 
             if (donoAmounts[0] == -1) // IF user wants to exit
             {
-                exit();
+                Exit();
                 exit = true;
                 continue;
             }
@@ -40,7 +40,6 @@ public class Program
                 //everything thet school chsoen has donated
                 //the total amount of that denomination
             }
-            
 
             //
         }
@@ -52,7 +51,7 @@ public class Program
     //Update the array
     public static void updateData(int school, int amount)
     {
-        arrSchools[school, demonimations.IndexOf(amount)] = amount;
+        arrSchools[school, Array.IndexOf(demonimations, amount)] = amount;
     }
 
     //Get the donation amounts from the user
@@ -70,7 +69,7 @@ public class Program
             Console.WriteLine("Enter donation amount ($5, $10, $20, $50, $100): ");
             userInput = (int)doubleGetUserInput(Console.ReadLine());
 
-            if (userInput > 0 && [5,10,20,50,100].Contains(userInput))
+            if (userInput > 0 && demonimations.Contains(userInput)) //TODO: NEEDS TO BE REPLACED
             {
                 donoAmount = userInput;
             }
@@ -103,7 +102,7 @@ public class Program
         return 0;
     }
 
-    public static void exit()
+    public static void Exit()
     {
         Console.WriteLine("Goodbye User");
     }
