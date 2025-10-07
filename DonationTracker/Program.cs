@@ -1,5 +1,14 @@
 using System;
 using System.Linq;
+
+/*
+Issue log:
+
+*/
+
+/*
+    DONATION TRACKER: ...
+*/
 public class Program
 {
     static bool exit = false;
@@ -37,8 +46,13 @@ public class Program
             else
             {
                 updateData(donoAmounts[0], donoAmounts[1]); //update the array
-                //everything thet school chsoen has donated
+
+                //everything thet school chosen has donated
+                int schTotalDonation = returnSchoolTotalDonation(donoAmount[0]);
+                Console.WriteLine($"School {donoAmount[0]} has donated a total of {schTotalDonation}");
                 //the total amount of that denomination
+                int totalDenominationDonation = returnTotalDonations(donoAmount[1]);
+                Console.WriteLine($"The total number of ${donoAmount[1]} that has been donated is {totalDenominationDonation}");
             }
 
             //
@@ -62,14 +76,14 @@ public class Program
         Console.WriteLine("Enter school index (0-6) or -1 to exit: ");
         int userInput = (int)doubleGetUserInput(Console.ReadLine());
 
-        if (userInput > 0)
+        if (userInput >= 0)
         {
             schIndex = userInput;
 
             Console.WriteLine("Enter donation amount ($5, $10, $20, $50, $100): ");
             userInput = (int)doubleGetUserInput(Console.ReadLine());
 
-            if (userInput > 0 && demonimations.Contains(userInput)) //TODO: NEEDS TO BE REPLACED
+            if (userInput > 0 && demonimations.Contains(userInput)) //TODO: NEEDS TO BE REPLACED. WAIT WHY?
             {
                 donoAmount = userInput;
             }
@@ -88,22 +102,16 @@ public class Program
 
     public static double doubleGetUserInput(String strNum)
     {
-        bool answered = false;
-        String str = "";
-
-        while (!answered)
-        {
             // Try parsing user input into a double
-            if (double.TryParse(strNum, out double num) && num >= 0)
+            if (double.TryParse(strNum, out double num) && num >= 0) //no negative input is expected (negative input means exit)
                 return num;
             else
                 return -1;
-        }
-        return 0;
     }
 
     public static void Exit()
     {
+        //TODO: Print the whole array (formatted and whatnot)
         Console.WriteLine("Goodbye User");
     }
 }
