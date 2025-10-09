@@ -1,6 +1,4 @@
-﻿using System; 
-using System.Linq;
-using System.Net.Mail;
+using System; 
 
 public class Program 
 { 
@@ -118,7 +116,6 @@ public class Program
     // ------- ARRAY MANIPULATIONS ------- 
     // Print the array 
     
-
     public static void printArr(int[,] arr)
     {
         //Format
@@ -146,9 +143,6 @@ public class Program
             Console.WriteLine("");
         }
     } 
- 
- 
-
 
     //return: Sum a column in the array 
     public static int columnSum(int[,] arr, int col) 
@@ -173,8 +167,38 @@ public class Program
         
         return sum; 
     }
-    // 
 
+    //Highest Donation in a row and it's denomination
+    public static int[] highestDono(int[,] arr, int row)
+    {
+        int max = 0;
+        int index = 0;
+        for (int i = 0; i < arr.GetLength(1); i++)
+        {
+            if (arr[row, i] > max)
+            {
+                index = i;
+                max = arr[row, i];
+            }
+        }
+        return new[] {index, max}; 
+    }
+
+    //Lowest Donation in a row and it's denomination
+    public static int[] lowestDono(int[,] arr, int row)
+    {
+        int max = arr[row, 0]; // Setting the minimum value to the first
+        int index = 0; 
+        for (int i = 0; i < arr.GetLength(1); i++)
+        {
+            if (arr[row, i] > max)
+            {
+                index = i;
+                max = arr[row, i];
+            }
+        }
+        return new[] {index, max}; 
+    }
 
 
 
