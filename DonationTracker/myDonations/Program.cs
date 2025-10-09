@@ -9,7 +9,6 @@ public class Program
     static int[,] arrSchools = new int[7,5]; 
     public static void Main(String[] args) 
     { 
-
         //
         Console.WriteLine("_______________________________________________________"); 
         Console.WriteLine("Welcome to School Donation Tracker\n"); 
@@ -48,10 +47,8 @@ public class Program
                 //the total amount of that denomination 
                 Console.WriteLine($"Total donations for ${donoAmounts[1]} denomination: {columnSum(arrSchools, Array.IndexOf(demonimations, donoAmounts[1]))}");
             }
-
             // 
         } 
-        
     } 
  
  
