@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/bin/Debug/net9.0/myDonations
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/bin/Debug/net9.0/myDonations.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/bin/Debug/net9.0/myDonations.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/bin/Debug/net9.0/myDonations.dll
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/bin/Debug/net9.0/myDonations.pdb
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.dll
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/refint/myDonations.dll
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.pdb
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/myDonations.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/DonationTracker/myDonations/obj/Debug/net9.0/ref/myDonations.dll
