@@ -1,5 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Linq;
 //Create a C# program that simulates a student grades system using 1D and 2D lists.
 
 /*
@@ -13,7 +15,7 @@ RemoveAt: listName.RemoveAt(index);
 /*
 TODO:
 1. Add methods to print whole list, singular students grades, singular grade for student
-2. Implement the bonus
+TODO: That whole ahh speach about the program
 3. Fix logical errors
 4. Fix loopholes (what is the student has no grades and you attempt to get the average?)
 */
@@ -39,7 +41,7 @@ public class Program
             Console.WriteLine("-------------------------------------------");
             string input = Console.ReadLine();
 
-            if (new[] { "1", "2", "3", "4", "5", "6" }.Contains(input)) //Good input
+            if (!string.IsNullOrWhiteSpace(input) && new[] { "1", "2", "3", "4", "5", "6", "7"}.Contains(input)) //Good input
             {
                 switch (int.Parse(input))
                 {
@@ -74,7 +76,7 @@ public class Program
             }
             else //Erroneous input
             {
-
+                Console.WriteLine("Invalid menu choice. Try again.\n");
             }
         }
 
@@ -85,9 +87,9 @@ public class Program
     public static void addStudentCaller()
     {
         Console.Write("\nName of student: ");
-        string name = Console.ReadLine();
+        string name = Console.ReadLine().Trim();
 
-        if (name == "" || name == " ")
+        if (string.IsNullOrWhiteSpace(name))
         {
             Console.WriteLine("Invalid Input\n");
         }
@@ -126,7 +128,14 @@ public class Program
             {
                 foreach (var grade in arrGrades)
                 {
-                    listGrades.Add(double.Parse(grade));
+                    double val = double.Parse(grade);
+                    if (val < 0 || val > 100)
+                    {
+                        Console.WriteLine("Grades must be between 0 and 100");
+                        tempErr = true;
+                        break;
+                    }
+                    listGrades.Add(val);
                 }
             }
             catch (System.FormatException)
@@ -156,7 +165,7 @@ public class Program
 
 
     public static void DisplayAllStudents()
-    {//TODO: Loopholes lil nigga
+    {//TODO: Loopholes lil bro
         for(int i = 0; i < students.Count; i++) //For each student in the list of students
         {
             Console.Write($"{students[i]}: ");
@@ -204,7 +213,7 @@ public class Program
     }
 
     public static void averageGradeCaller()
-    {//TODO: What if the student has no grades?
+    {
         int studentIndex = getStudentIndex(); //Get student index
 
         if (studentIndex < 0)
@@ -215,21 +224,21 @@ public class Program
         {
             double avg = averageGrade(studentIndex);
 
-            Console.WriteLine($"Average grade for [{students[studentIndex]}] is: {Math.Round(avg, 1)}");
+            if(avg > 0)
+                Console.WriteLine($"Average grade for [{students[studentIndex]}] is: {Math.Round(avg, 1)}");
         }
     }
 
     public static double averageGrade(int studentIndex)
     {
-        double sum = 0;
-        int count = 0;
-        for (int i = 0; i < grades[studentIndex].Count; i++)
+        if (grades[studentIndex].Count == 0)
         {
-            sum += grades[studentIndex][i];
-            count += 1;
+            Console.WriteLine("Add grades first");
+            return 0;
         }
 
-        return sum / count;
+        double sum = grades[studentIndex].Sum();
+        return sum / grades[studentIndex].Count;
     }
 
 
@@ -251,13 +260,16 @@ public class Program
             }
 
             //Accept student index
-            Console.Write("Enter student index: "); string strStudentIndex = Console.ReadLine();
+            Console.Write("Enter student index: "); string strStudentIndex = Console.ReadLine().Trim();
 
             //If proper index inputted
-            if (int.TryParse(strStudentIndex, out int studentIndex) && studentIndex > -1)
+            if (int.TryParse(strStudentIndex, out int studentIndex) && studentIndex >= 0 && studentIndex <= students.Count)
                 return studentIndex;
             else
-                Console.WriteLine("Non-existent index chosen\n"); return -1;
+            {
+                Console.WriteLine("Non-existent index chosen\n"); 
+                return -1;
+            }
         }
         else
         {
@@ -266,7 +278,7 @@ public class Program
         }
     }
 
-    /*
+    /*F
     Displays a student's grades (with indexes)
     IF index chosen does not exist, returns -1;
     IF the student doesn't have grades, return -2;
@@ -284,10 +296,14 @@ public class Program
             Console.Write("\nEnter grade index: "); string strGradeIndex = Console.ReadLine();
 
             //If proper index inputted
-            if (int.TryParse(strGradeIndex, out int gradeIndex) && gradeIndex > -1)
+            if (int.TryParse(strGradeIndex, out int gradeIndex) && gradeIndex >= 0 && gradeIndex < grades[stuIndex].Count)
                 return gradeIndex;
             else
-                Console.WriteLine("Non-existent index chosen\n"); return -1;
+            {
+                Console.WriteLine("Non-existent index chosen\n"); 
+                return -1;
+            }
+                
         }
         else
         {
