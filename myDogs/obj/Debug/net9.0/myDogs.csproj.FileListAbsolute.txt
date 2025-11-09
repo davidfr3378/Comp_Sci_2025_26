@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/bin/Debug/net9.0/myDogs
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/bin/Debug/net9.0/myDogs.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/bin/Debug/net9.0/myDogs.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/bin/Debug/net9.0/myDogs.dll
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/bin/Debug/net9.0/myDogs.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.dll
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/refint/myDogs.dll
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/myDogs.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/myDogs/obj/Debug/net9.0/ref/myDogs.dll
