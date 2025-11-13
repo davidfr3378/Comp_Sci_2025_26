@@ -6,20 +6,22 @@ using System.Reflection.PortableExecutable;
 public class Road : Subject
 {
     private int maxPedestrians { get; } = 2;
-    public string Name { get; private set; }
-    int Subject.maxPedestrians { get => maxPedestrians;} // TODO Understand this later
+    public string Name { get; set; }
 
+    public event Action<Observer, Observer> OnTwoDogsPresent;
     private List<Observer> pedestrians = new List<Observer>();
 
-    Road(string Name)
+    // Constructor
+    public Road(string name)
     {
-        ArgumentNullException.ThrowIfNull(Name, nameof(Name));
-        this.Name = Name;
+        ArgumentNullException.ThrowIfNull(name, nameof(name));
+        getName(name);
     }
 
     //
     public void attach(Observer o)
     {
+
         //Make sure they aren't adding more than allowed
         switch (pedestrians.Count)
         {
@@ -33,7 +35,8 @@ public class Road : Subject
 
         }
 
-        observeMaxPedestrians(); 
+        // When two dogs are on the road, trigger an event 
+        if (pedestrians.Count == maxPedestrians) OnTwoDogsPresent?.Invoke(pedestrians[0], pedestrians[1]); 
     }
 
     public void retach(Observer o)
@@ -46,13 +49,9 @@ public class Road : Subject
         pedestrians.ForEach(p => p.update(this.Name));
     }
 
-    private bool observeMaxPedestrians()
-    {
-        if (pedestrians.Count == maxPedestrians)
-            return true;
-        else
-            return false;
+    //
+    public void getName(string name){
+        this.Name = name;
     }
+
 }
-
-
