@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Program
 {
@@ -12,7 +12,7 @@ class Program
 
         //Obj.
         Dog dog1 = new Dog("Dan", 3, 4, 5); r1.attach(dog1);
-        Dog dog2 = new Dog("Han", 3, 4, 5); r1.attach(dog2);
+        Dog dog2 = new Dog("Han", 3, 5, 6); r1.attach(dog2);
     }
 
 }
