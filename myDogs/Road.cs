@@ -8,8 +8,8 @@ public class Road : Subject
     private int maxPedestrians { get; } = 2;
     public string Name { get; set; }
 
-    public event Action<Observer, Observer> OnTwoDogsPresent;
-    private List<Observer> pedestrians = new List<Observer>();
+    public event Action<Dog, Dog> OnTwoDogsPresent;
+    private List<Dog> pedestrians = new List<Dog>();
 
     // Constructor
     public Road(string name)
@@ -19,14 +19,14 @@ public class Road : Subject
     }
 
     //
-    public void attach(Observer o)
+    public void attach(Dog d)
     {
 
         //Make sure they aren't adding more than allowed
         switch (pedestrians.Count)
         {
             case int n when n >= 0 && n < maxPedestrians:
-                pedestrians.Add(o);
+                pedestrians.Add(d);
                 break;
             default:
                 Console.WriteLine($" -- You can't add more than {maxPedestrians} per road");
@@ -39,9 +39,9 @@ public class Road : Subject
         if (pedestrians.Count == maxPedestrians) OnTwoDogsPresent?.Invoke(pedestrians[0], pedestrians[1]); 
     }
 
-    public void retach(Observer o)
+    public void retach(Dog d)
     {
-        pedestrians.Remove(o);
+        pedestrians.Remove(d);
     }
 
     public void notify()

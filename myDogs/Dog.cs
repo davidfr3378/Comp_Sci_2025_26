@@ -6,6 +6,8 @@ public class Dog : Observer{
     public int Aggresion {get; set;}
     public int Hunger {get; set;}
 
+    
+
     public Dog(string name, int age, int aggresion, int hunger)
     {
         ArgumentNullException.ThrowIfNull(name, nameof(name));
