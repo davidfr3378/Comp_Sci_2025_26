@@ -39,7 +39,6 @@ public class Road : Subject
     public void retach(Observer o)
     {
         pedestrians.Remove(o);
-
     }
 
     public void notify()
