@@ -1,6 +1,6 @@
 public interface Subject
 {
     void attach(Dog d);
-    void retach(Dog d);
+    void detach(Dog d);
     void notify();
 }

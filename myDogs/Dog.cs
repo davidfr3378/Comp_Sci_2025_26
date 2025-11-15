@@ -3,18 +3,18 @@ using System.Security.AccessControl;
 public class Dog : Observer{
     public string Name {get; private set;}
     public int Age {get; private set;}
-    public int Aggresion {get; set;}
+    public int Aggression {get; set;}
     public int Hunger {get; set;}
 
     
 
-    public Dog(string name, int age, int aggresion, int hunger)
+    public Dog(string name, int age, int aggression, int hunger)
     {
         ArgumentNullException.ThrowIfNull(name, nameof(name));
 
         this.Name = name;
         this.Age = age;
-        this.Aggresion = aggresion;
+        this.Aggression = aggression;
         this.Hunger = hunger;
 
     }

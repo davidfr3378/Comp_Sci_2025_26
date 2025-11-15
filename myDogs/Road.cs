@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Net;
 using System.Reflection.PortableExecutable;
+using System.Runtime.InteropServices.Swift;
 
 public class Road : Subject
 {
@@ -39,7 +40,7 @@ public class Road : Subject
         if (pedestrians.Count == maxPedestrians) OnTwoDogsPresent?.Invoke(pedestrians[0], pedestrians[1]); 
     }
 
-    public void retach(Dog d)
+    public void detach(Dog d)
     {
         pedestrians.Remove(d);
     }
