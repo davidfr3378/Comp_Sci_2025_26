@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/myTest/bin/Debug/net9.0/myTest
+/home/ezimada/git/Comp_Sci_2025_26/myTest/bin/Debug/net9.0/myTest.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/myTest/bin/Debug/net9.0/myTest.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/myTest/bin/Debug/net9.0/myTest.dll
+/home/ezimada/git/Comp_Sci_2025_26/myTest/bin/Debug/net9.0/myTest.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.dll
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/refint/myTest.dll
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/myTest.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/myTest/obj/Debug/net9.0/ref/myTest.dll
