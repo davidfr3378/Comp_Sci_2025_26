@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/bin/Debug/net9.0/myFileReader
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/bin/Debug/net9.0/myFileReader.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/bin/Debug/net9.0/myFileReader.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/bin/Debug/net9.0/myFileReader.dll
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/bin/Debug/net9.0/myFileReader.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.dll
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/refint/myFileReader.dll
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/myFileReader.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/myFileReader/obj/Debug/net9.0/ref/myFileReader.dll

@@ -1,44 +1,23 @@
 ﻿using System;
-using System.IO;
 
-public class Program
+/// <summary>
+/// Entry point of the program. Loads quotes and displays a random one.
+/// </summary>
+class Program
 {
-    public static void main(string[] args){
-        string[] linesArr = readLines("file.txt");
-
-    }
-
-    public static string[] readLines(string fileName)
+    static void Main()
     {
-        int[] numbers;
-        string[] lines;
-        int count = 0;
+        // The text file MUST be in the same folder as Program.cs
+        string filePath = "quotes.txt";
 
-        try
-        {
-            lines = File.ReadAllLines("data.txt");
+        // Load all quotes from file
+        string[] quotes = QuoteReader.ReadQuotes(filePath);
 
-            foreach (var item in lines)
-            {
-                if(int.TryParse(item, out int x))
-                { }
-                else
-                {count += 1;}
-            }
-            
-            if (count > 0)
-                return lines;
-            else
-                numbers = Array.ConvertAll(lines, int.Parse);
-                return numbers;
+        // Grab one random quote
+        string quoteOfTheDay = QuoteSelector.GetRandomQuote(quotes);
 
-        }
-        catch(Exception e)
-        {
-            Console.WriteLine("Exception: " + e.Message);
-            return [];
-        }
+        Console.WriteLine("\nQuote of the Day");
+        Console.WriteLine("----------------");
+        Console.WriteLine(quoteOfTheDay);
     }
-
-
 }
