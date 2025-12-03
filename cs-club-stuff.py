@@ -55,7 +55,6 @@ lr = 0.5
 # ----------------------------------------------------------
 # TRAINING PHASE
 # ----------------------------------------------------------
-[attachment_0](attachment)
 
 print("Training...")
 for epoch in range(10000): # Increased epochs slightly for stability
@@ -91,26 +90,4 @@ for epoch in range(10000): # Increased epochs slightly for stability
         
         # Update Output Layer
         for i in range(2):
-            w2[i] += lr * d_w2[i]
-        b2 += lr * d_b2
-
-        # Update Hidden Layer
-        for i in range(2):
-            b1[i] += lr * d_h[i]
-            for j in range(2):
-                w1[i][j] += lr * d_h[i] * x[j]
-
-# ----------------------------------------------------------
-# TESTING PHASE
-# ----------------------------------------------------------
-print("\nResults after training:")
-print(f"{'Input':<10} | {'Target':<8} | {'Prediction':<10}")
-print("-" * 35)
-
-for x, target in data:
-    # Recompute hidden
-    h = [sigmoid(w1[i][0]*x[0] + w1[i][1]*x[1] + b1[i]) for i in range(2)]
-    # Recompute output
-    out = sigmoid(h[0]*w2[0] + h[1]*w2[1] + b2)
-    
-    print(f"{str(x):<10} | {target:<8} | {out:.5f}")
+            w2[i] += lr * d_w2
