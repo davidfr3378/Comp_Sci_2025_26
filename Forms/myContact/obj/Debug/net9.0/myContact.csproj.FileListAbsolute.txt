@@ -1,0 +1,5 @@
+/home/ezimada/git/Comp_Sci_2025_26/Forms/myContact/obj/Debug/net9.0/myContact.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/Forms/myContact/obj/Debug/net9.0/myContact.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/Forms/myContact/obj/Debug/net9.0/myContact.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/Forms/myContact/obj/Debug/net9.0/myContact.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/Forms/myContact/obj/Debug/net9.0/myContact.sourcelink.json
