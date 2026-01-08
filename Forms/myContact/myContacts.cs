@@ -1,3 +1,4 @@
+namespace myContact;
 using Microsoft.AspNetCore.Components.WebView.WindowsForms;
 
 namespace myContact
