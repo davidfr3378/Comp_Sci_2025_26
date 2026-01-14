@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/bin/Debug/net9.0/myMaze
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/bin/Debug/net9.0/myMaze.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/bin/Debug/net9.0/myMaze.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/bin/Debug/net9.0/myMaze.dll
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/bin/Debug/net9.0/myMaze.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.dll
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/refint/myMaze.dll
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.pdb
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/myMaze.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/myMaze/obj/Debug/net9.0/ref/myMaze.dll
