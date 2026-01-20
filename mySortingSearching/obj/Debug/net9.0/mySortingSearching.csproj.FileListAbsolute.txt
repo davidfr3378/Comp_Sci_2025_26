@@ -1,0 +1,15 @@
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/bin/Debug/net9.0/mySortingSearching
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/bin/Debug/net9.0/mySortingSearching.deps.json
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/bin/Debug/net9.0/mySortingSearching.runtimeconfig.json
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/bin/Debug/net9.0/mySortingSearching.dll
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/bin/Debug/net9.0/mySortingSearching.pdb
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.GeneratedMSBuildEditorConfig.editorconfig
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.AssemblyInfoInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.AssemblyInfo.cs
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.csproj.CoreCompileInputs.cache
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.sourcelink.json
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.dll
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/refint/mySortingSearching.dll
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.pdb
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/mySortingSearching.genruntimeconfig.cache
+/home/ezimada/git/Comp_Sci_2025_26/mySortingSearching/obj/Debug/net9.0/ref/mySortingSearching.dll
